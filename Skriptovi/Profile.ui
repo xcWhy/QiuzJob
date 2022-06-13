@@ -23,7 +23,8 @@
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">background-color: qlineargradient(spread:pad, x1:0.426, y1:0.00568182, x2:0.517, y2:1, stop:0 rgba(100, 241, 255, 255), stop:1 rgba(245, 221, 221, 255));</string>
+    <string notr="true">
+background-color: qlineargradient(spread:pad, x1:0.21, y1:0.187773, x2:0.466, y2:1, stop:0 rgba(111, 127, 252, 255), stop:1 rgba(245, 221, 221, 255));</string>
    </property>
    <widget class="QComboBox" name="theme_box">
     <property name="geometry">
@@ -35,9 +36,9 @@
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color: rgb(255, 255, 255);
+     <string notr="true">color: rgb(54, 63, 124);
 font: 18pt &quot;MS Shell Dlg 2&quot;;
-background-color: qlineargradient(spread:pad, x1:0.585091, y1:0.619, x2:0.67, y2:1, stop:0.00568182 rgba(161, 206, 245, 178), stop:0.994318 rgba(245, 245, 245, 255));</string>
+background-color: rgb(155, 164, 247);</string>
     </property>
     <item>
      <property name="text">
@@ -79,6 +80,9 @@ background-color: qlineargradient(spread:pad, x1:0.585091, y1:0.619, x2:0.67, y2
       <height>20</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(155, 164, 247);</string>
+    </property>
     <property name="orientation">
      <enum>Qt::Horizontal</enum>
     </property>
@@ -86,14 +90,15 @@ background-color: qlineargradient(spread:pad, x1:0.585091, y1:0.619, x2:0.67, y2
    <widget class="QLabel" name="label">
     <property name="geometry">
      <rect>
-      <x>100</x>
-      <y>60</y>
+      <x>110</x>
+      <y>50</y>
       <width>151</width>
       <height>91</height>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">font: 32pt &quot;MS Shell Dlg 2&quot;;
+     <string notr="true">
+	font: 32pt &quot;Rockwell&quot;;
 color: rgb(255, 255, 255);
 background-color: qlineargradient(spread:pad, x1:0.205, y1:0, x2:0.312, y2:1, stop:0 rgba(100, 241, 255, 0), stop:1 rgba(245, 221, 221, 0));</string>
     </property>
@@ -104,16 +109,18 @@ background-color: qlineargradient(spread:pad, x1:0.205, y1:0, x2:0.312, y2:1, st
    <widget class="QPushButton" name="ButtonReady">
     <property name="geometry">
      <rect>
-      <x>680</x>
+      <x>640</x>
       <y>190</y>
       <width>161</width>
       <height>51</height>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">font: 24pt &quot;MS Shell Dlg 2&quot;;
+     <string notr="true">
+background-color: rgb(85, 98, 194);
 color: rgb(255, 255, 255);
-background-color: rgb(179, 229, 255);</string>
+	font: 24pt &quot;Rockwell&quot;;
+</string>
     </property>
     <property name="text">
      <string>Ready?</string>
@@ -122,19 +129,19 @@ background-color: rgb(179, 229, 255);</string>
    <widget class="QLabel" name="label_2">
     <property name="geometry">
      <rect>
-      <x>60</x>
+      <x>70</x>
       <y>200</y>
-      <width>171</width>
+      <width>211</width>
       <height>41</height>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">color: rgb(255, 255, 255);
-background-color: rgb(179, 229, 255);
-font: 22pt &quot;MS Shell Dlg 2&quot;;</string>
+     <string notr="true">background-color: rgb(85, 98, 194);
+color: rgb(255, 255, 255);
+	font: 24pt &quot;Rockwell&quot;;</string>
     </property>
     <property name="text">
-     <string>Avaible jobs:</string>
+     <string> Avaible jobs:</string>
     </property>
    </widget>
    <widget class="Line" name="line">
@@ -145,6 +152,9 @@ font: 22pt &quot;MS Shell Dlg 2&quot;;</string>
       <width>21</width>
       <height>831</height>
      </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(155, 164, 247);</string>
     </property>
     <property name="orientation">
      <enum>Qt::Vertical</enum>
@@ -160,7 +170,8 @@ font: 22pt &quot;MS Shell Dlg 2&quot;;</string>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">font: 32pt &quot;MS Shell Dlg 2&quot;;
+     <string notr="true">
+	font: 32pt &quot;Rockwell&quot;;
 color: rgb(255, 255, 255);
 background-color: qlineargradient(spread:pad, x1:0.205, y1:0, x2:0.312, y2:1, stop:0 rgba(100, 241, 255, 0), stop:1 rgba(245, 221, 221, 0));</string>
     </property>
@@ -171,11 +182,14 @@ background-color: qlineargradient(spread:pad, x1:0.205, y1:0, x2:0.312, y2:1, st
    <widget class="Line" name="line_3">
     <property name="geometry">
      <rect>
-      <x>310</x>
+      <x>320</x>
       <y>260</y>
       <width>961</width>
       <height>16</height>
      </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(155, 164, 247);</string>
     </property>
     <property name="orientation">
      <enum>Qt::Horizontal</enum>
@@ -184,7 +198,7 @@ background-color: qlineargradient(spread:pad, x1:0.205, y1:0, x2:0.312, y2:1, st
    <widget class="QLabel" name="label_4">
     <property name="geometry">
      <rect>
-      <x>330</x>
+      <x>340</x>
       <y>300</y>
       <width>261</width>
       <height>61</height>
@@ -203,16 +217,17 @@ scores:</string>
    <widget class="QLabel" name="prevlabel1">
     <property name="geometry">
      <rect>
-      <x>330</x>
+      <x>340</x>
       <y>400</y>
-      <width>301</width>
+      <width>321</width>
       <height>61</height>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">font: 20pt &quot;MS Shell Dlg 2&quot;;
+     <string notr="true">background-color: rgb(85, 98, 194);
 color: rgb(255, 255, 255);
-background-color: rgb(179, 229, 255);</string>
+	font: 20pt &quot;Rockwell&quot;;
+border-radius: 10px;</string>
     </property>
     <property name="text">
      <string> ---------------</string>
@@ -221,16 +236,18 @@ background-color: rgb(179, 229, 255);</string>
    <widget class="QLabel" name="prevlabel2">
     <property name="geometry">
      <rect>
-      <x>330</x>
+      <x>340</x>
       <y>480</y>
-      <width>301</width>
+      <width>321</width>
       <height>61</height>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">font: 20pt &quot;MS Shell Dlg 2&quot;;
+     <string notr="true">background-color: rgb(85, 98, 194);
 color: rgb(255, 255, 255);
-background-color: rgb(179, 229, 255);</string>
+	font: 20pt &quot;Rockwell&quot;;
+
+border-radius: 10px;</string>
     </property>
     <property name="text">
      <string> ---------------</string>
@@ -239,17 +256,18 @@ background-color: rgb(179, 229, 255);</string>
    <widget class="QLabel" name="prevlabel3">
     <property name="geometry">
      <rect>
-      <x>330</x>
+      <x>340</x>
       <y>560</y>
-      <width>301</width>
+      <width>321</width>
       <height>61</height>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">font: 20pt &quot;MS Shell Dlg 2&quot;;
+     <string notr="true">background-color: rgb(85, 98, 194);
 color: rgb(255, 255, 255);
-background-color: rgb(179, 229, 255);
-</string>
+	font: 20pt &quot;Rockwell&quot;;
+
+border-radius: 10px;</string>
     </property>
     <property name="text">
      <string> ---------------</string>
@@ -258,16 +276,18 @@ background-color: rgb(179, 229, 255);
    <widget class="QLabel" name="bestlabel2">
     <property name="geometry">
      <rect>
-      <x>740</x>
+      <x>800</x>
       <y>480</y>
-      <width>371</width>
+      <width>341</width>
       <height>61</height>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">font: 20pt &quot;MS Shell Dlg 2&quot;;
+     <string notr="true">background-color: rgb(85, 98, 194);
 color: rgb(255, 255, 255);
-background-color: rgb(179, 229, 255);</string>
+	font: 20pt &quot;Rockwell&quot;;
+
+border-radius: 10px;</string>
     </property>
     <property name="text">
      <string> ---------------</string>
@@ -276,16 +296,18 @@ background-color: rgb(179, 229, 255);</string>
    <widget class="QLabel" name="bestlabel3">
     <property name="geometry">
      <rect>
-      <x>740</x>
+      <x>800</x>
       <y>560</y>
-      <width>371</width>
+      <width>341</width>
       <height>61</height>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">font: 20pt &quot;MS Shell Dlg 2&quot;;
+     <string notr="true">background-color: rgb(85, 98, 194);
 color: rgb(255, 255, 255);
-background-color: rgb(179, 229, 255);</string>
+	font: 20pt &quot;Rockwell&quot;;
+
+border-radius: 10px;</string>
     </property>
     <property name="text">
      <string> ---------------</string>
@@ -294,16 +316,18 @@ background-color: rgb(179, 229, 255);</string>
    <widget class="QLabel" name="bestlabel1">
     <property name="geometry">
      <rect>
-      <x>740</x>
+      <x>800</x>
       <y>400</y>
-      <width>371</width>
+      <width>341</width>
       <height>61</height>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">font: 20pt &quot;MS Shell Dlg 2&quot;;
+     <string notr="true">background-color: rgb(85, 98, 194);
 color: rgb(255, 255, 255);
-background-color: rgb(179, 229, 255);</string>
+	font: 20pt &quot;Rockwell&quot;;
+
+border-radius: 10px;</string>
     </property>
     <property name="text">
      <string> ---------------</string>
@@ -312,7 +336,7 @@ background-color: rgb(179, 229, 255);</string>
    <widget class="QLabel" name="label_11">
     <property name="geometry">
      <rect>
-      <x>740</x>
+      <x>800</x>
       <y>300</y>
       <width>261</width>
       <height>61</height>
@@ -331,11 +355,14 @@ scores:</string>
    <widget class="Line" name="line_4">
     <property name="geometry">
      <rect>
-      <x>650</x>
+      <x>730</x>
       <y>270</y>
       <width>20</width>
       <height>611</height>
      </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(155, 164, 247);</string>
     </property>
     <property name="orientation">
      <enum>Qt::Vertical</enum>
@@ -351,9 +378,9 @@ scores:</string>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">font: 24pt &quot;MS Shell Dlg 2&quot;;
+     <string notr="true">background-color: rgb(85, 98, 194);
 color: rgb(255, 255, 255);
-background-color: rgb(179, 229, 255);</string>
+	font: 24pt &quot;Rockwell&quot;;</string>
     </property>
     <property name="text">
      <string>Refresh</string>
@@ -372,7 +399,7 @@ background-color: rgb(179, 229, 255);</string>
    <widget class="QLabel" name="warning_label">
     <property name="geometry">
      <rect>
-      <x>880</x>
+      <x>840</x>
       <y>200</y>
       <width>201</width>
       <height>41</height>

@@ -6,119 +6,6 @@ from PyQt5.QtGui import QPixmap
 
 import sqlite3
 
-#da se napravqt nai-skoroshnite da izlizat nai-otgore
-#da se napravi max
-#da se namerqt vyprosi (pone 10), za se puskat na random
-#tochki kym procenti
-#da se smeni nachina za poluchavane na tochki
-
-questionCount = 0
-maxPoints = 0
-
-
-prevText = ['0', '0', '0']
-bestText = ['0', '0', '0']
-prevJob = ['0', '0', '0']
-bestJob = ['0', '0', '0']
-job_index = -1
-job_text = str()
-
-
-class WelcomeScreen(QDialog):
-    def __init__(self):
-        super(WelcomeScreen, self).__init__()
-        loadUi("First.ui", self)
-        self.Login_btn.clicked.connect(self.gotologin)
-        self.Signin_btn.clicked.connect(self.gotosignin) # V MOMENTA NQMA DA RABOTI ZARADI TOVA TUK <<<<<<<<<<<
-
-    def gotologin(self):
-        login = LoginScreen()
-        widget.addWidget(login)
-        widget.setCurrentIndex(widget.currentIndex() + 1)
-
-    def gotosignin(self):
-        signin = SigninScreen()
-        widget.addWidget(signin)
-        widget.setCurrentIndex(widget.currentIndex() + 1)
-
-
-class SigninScreen(QDialog):
-    def __init__(self):
-        super(SigninScreen, self).__init__()
-        loadUi("CreateAccScreen.ui", self)
-        self.passwordfield.setEchoMode(QtWidgets.QLineEdit.Password)
-        self.gologin_btn.hide()
-        self.warning_label.hide()
-        self.confirm_label.hide()
-        self.create_btn.clicked.connect(self.createAcc)
-
-
-    def createAcc(self):
-        username = self.usernamefield.text()
-        password = self.passwordfield.text()
-
-        if len(username) == 0 or len(password) == 0:
-            self.warning_label.show()
-
-        else:
-
-            connection = sqlite3.connect("test2.db")
-            cur = connection.cursor()
-            print("Successfully Connected to SQLite")
-
-            cur.execute("INSERT INTO login_info (username, password) VALUES (?, ?);",
-                        (username, password))
-            connection.commit()
-
-            cur.close()
-
-            self.gologin_btn.show()
-            self.gologin_btn.clicked.connect(self.gotologin)
-    def gotologin(self):
-        login = LoginScreen()
-        widget.addWidget(login)
-        widget.setCurrentIndex(widget.currentIndex() + 1)
-
-class LoginScreen(QDialog):
-    def __init__(self):
-        super(LoginScreen, self).__init__()
-        loadUi("LoginScreen.ui", self)
-        #self.wrong_label.hide()
-        self.passwordfield.setEchoMode(QtWidgets.QLineEdit.Password)
-        self.back_btn.clicked.connect(self.gotowelcome)
-        self.login_btn.clicked.connect(self.loginfunc)
-
-    def loginfunc(self):
-        username = self.usernamefield.text()
-        password = self.passwordfield.text()
-
-        if len(username) == 0 or len(password) == 0:
-            self.wrong_label.show()
-
-        else:
-            print('hah')
-            connection = sqlite3.connect("test2.db")
-            cur = connection.cursor()
-            #query = 'SELECT password FROM login_info WHERE username =\''+username+"\'"
-            cur.execute("SELECT password FROM login_info WHERE username = ?", (username,)) #da se opravi pri greshen username
-            result_pass = cur.fetchone()[0]
-            if result_pass == password:
-                print('weeeeeeeeeeeee')
-                self.gotoprofile(username)
-            else:
-                print('liosho >:(')
-                self.wrong_label.show()
-
-    def gotoprofile(self, username):
-        profile = ProfileScreen(username)
-        widget.addWidget(profile)
-        widget.setCurrentIndex(widget.currentIndex() + 1)
-
-    def gotowelcome(self): # VERY BROKENNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
-        welcome = WelcomeScreen()
-        widget.addWidget(welcome)
-        widget.setCurrentIndex(widget.currentIndex() - 1)
-
 
 class ProfileScreen(QDialog):
     global maxPoints
@@ -145,7 +32,7 @@ class ProfileScreen(QDialog):
         else:
             self.theme_chooser()
             maxPoints = 0
-            questionSc = QuestionsScreen(self.user)
+            questionSc = QuestionsScreen()
             widget.addWidget(questionSc)
             widget.setCurrentIndex(widget.currentIndex() + 1)
             self.warning_label.hide()
@@ -166,6 +53,7 @@ class ProfileScreen(QDialog):
         for i in range(len(rows)):
             self.prevLabels[i].setText(str(f'{rows[i][0]} : {rows[i][1]}'))
             self.bestLabels[i].setText(str(f'{rows[i][0]} : {rows[i][1]}'))
+
 
     def theme_chooser(self):
         global job_index, job_text
@@ -201,25 +89,26 @@ class ProfileScreen(QDialog):
         print("Successfully Connected to SQLite")
 
         if job_text != '' and maxPoints != 0:
+
             cur.execute("INSERT INTO res_questions (theme, score, user) VALUES (?, ?, ?);",
                         (job_text, maxPoints, self.user))
             connection.commit()
 
-        # self.theme_chooser()
+        #self.theme_chooser()
         self.labels_text()
 
         job_text = ''
         maxPoints = 0
 
 
-class QuestionsScreen(QDialog):  # oshte edna funkciq kaoqto da refreshva i da ne precakva vyprosite
-    def __init__(self, user):
+
+class QuestionsScreen(QDialog): #oshte edna funkciq kaoqto da refreshva i da ne precakva vyprosite
+    def __init__(self):
         global questionCount, maxPoints, job_index, questionCount
         super(QuestionsScreen, self).__init__()
         loadUi("Questions.ui", self)
-        self.user = user
         self.refresh()
-        # self.done_btn.hide()
+        #self.done_btn.hide()
         self.prevquestion.hide()
         self.points.setMaximum(100)
         self.isVis = self.done_btn.isVisible
@@ -229,6 +118,7 @@ class QuestionsScreen(QDialog):  # oshte edna funkciq kaoqto da refreshva i da n
         self.nextquestion.clicked.connect(self.question_changer_forward)
         self.prevquestion.clicked.connect(self.question_changer_backward)
         self.done_btn.clicked.connect(self.ready)
+
 
     def question_changer_forward(self):
         global questionCount, maxPoints, job_index
@@ -243,10 +133,10 @@ class QuestionsScreen(QDialog):  # oshte edna funkciq kaoqto da refreshva i da n
             self.btn_shower(self.nextquestion)
             self.done_btn.show()
 
-        self.questions_label.setText(
-            Questions[job_index][questionCount])  # opravi tukkkk <<<< trqbva da e s dboivna skoba
+        self.questions_label.setText(Questions[job_index][questionCount])  # opravi tukkkk <<<< trqbva da e s dboivna skoba
         self.points.setValue(0)
         self.points_show.setText(str(maxPoints))
+
 
     def question_changer_backward(self):
         global questionCount, maxPoints, job_index
@@ -259,9 +149,10 @@ class QuestionsScreen(QDialog):  # oshte edna funkciq kaoqto da refreshva i da n
             self.btn_shower(self.prevquestion)
 
         maxPoints -= int(self.points.value())
-        self.questions_label.setText(Questions[job_index][questionCount])  # opravi tukkkk <<<<
+        self.questions_label.setText(Questions[job_index][questionCount]) # opravi tukkkk <<<<
         self.points.setValue(0)
         self.points_show.setText(str(maxPoints))
+
 
     def btn_shower(self, btn):
         self.btn = btn
@@ -276,28 +167,6 @@ class QuestionsScreen(QDialog):  # oshte edna funkciq kaoqto da refreshva i da n
     def ready(self):
         global maxPoints
         maxPoints += int(self.points.value())
-        profile = ProfileScreen(self.user)
+        profile = ProfileScreen()
         widget.addWidget(profile)
         widget.setCurrentIndex(widget.currentIndex() - 1)
-
-
-Questions = [['Farmer 1', 'Farmer 2', 'Farmer 3', 'Farmer 4', 'Farmer 5', 'lol'],
-             ['Waitress 1', 'Waitress 2', 'Waitress 3', 'Waitress 4', 'Waitress 5', 'lol'],
-             ['Chef 1', 'Chef 2', 'Chef 3', 'Chef 4', 'Chef 5', 'lol'],
-             ['Doctor 1', 'Doctor 2', 'Doctor 3', 'Doctor 4', 'Doctor 5', 'lol'],
-             ['Programmer 1', 'Programmer 2', 'Programmer 3', 'Programmer 4', 'Programmer 5', 'lol'],
-             ]
-
-# main
-
-app = QApplication(sys.argv)
-welcome = WelcomeScreen()
-widget = QtWidgets.QStackedWidget()
-widget.addWidget(welcome)
-widget.setFixedHeight(800)
-widget.setFixedWidth(1200)
-widget.show()
-try:
-    sys.exit(app.exec_())
-except:
-    print("Exiting")

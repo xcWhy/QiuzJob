@@ -201,7 +201,7 @@ background-color: rgb(179, 229, 255);</string>
     <property name="geometry">
      <rect>
       <x>260</x>
-      <y>730</y>
+      <y>720</y>
       <width>301</width>
       <height>71</height>
      </rect>
@@ -218,7 +218,7 @@ background-color: rgb(179, 229, 255);</string>
    <widget class="QLabel" name="points_show">
     <property name="geometry">
      <rect>
-      <x>600</x>
+      <x>590</x>
       <y>730</y>
       <width>111</width>
       <height>61</height>
@@ -226,8 +226,8 @@ background-color: rgb(179, 229, 255);</string>
     </property>
     <property name="styleSheet">
      <string notr="true">font: 24pt &quot;MS Shell Dlg 2&quot;;
-color: rgb(26, 26, 26);
-background-color: qlineargradient(spread:pad, x1:0.205, y1:0, x2:0.312, y2:1, stop:0 rgba(100, 241, 255, 0), stop:1 rgba(245, 221, 221, 0));</string>
+color: rgb(255, 255, 255);
+background-color: rgb(179, 229, 255);</string>
     </property>
     <property name="text">
      <string/>
