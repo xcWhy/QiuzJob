@@ -6,7 +6,7 @@ from PyQt5.QtGui import QPixmap
 
 import sqlite3
 
-#da se napravqt nai-skoroshnite da izlizat nai-otgore
+#da se napravqt nai-skoroshnite da izlizat nai-otgore done
 #da se napravi max
 
 #da se namerqt vyprosi (pone 10), za se puskat na random
@@ -150,18 +150,36 @@ class ProfileScreen(QDialog):
         cur.execute('SELECT theme, score FROM res_questions WHERE user = ?', (self.user,))
 
         rows = cur.fetchall()
-
+        rows1 = cur.fetchall()
+        rows1.sort()
+        print("unsort rows:"+str(rows))
         rezultati = []
+        max = []
+        max_point = []
 
         for i in range(len(rows)-1, 0, -1):
             rezultati.append(rows[i])
             if len(rezultati) == 3:
                 break
-        print(rezultati)
+        print("results:"+str(rezultati))
+
+        for j in range(0,len(rows),1):
+            max.append(rows[j])
+        print("unsorted:" + str(max))
+        '''max.sort()
+        print("sorted (by name):"+str(max))'''
+
+        for j in range(0,len(max),1):
+            for k in range(j+1,len(max),1):
+                if max[j][1]<max[k][1]:
+                    a = max[j]
+                    max[j] = max[k]
+                    max[k] = a
+        print("rows:"+str(max))
 
         for i in range(len(rezultati)):
             self.prevLabels[i].setText(str(f'{rezultati[i][0]} : {rezultati[i][1]}%'))
-            self.bestLabels[i].setText(str(f'{rezultati[i][0]} : {rezultati[i][1]}%'))
+            self.bestLabels[i].setText(str(f'{max[i][0]} : {max[i][1]}%'))
 
     def theme_chooser(self):
         global job_index, job_text
