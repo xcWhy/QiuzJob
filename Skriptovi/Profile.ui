@@ -23,8 +23,7 @@
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">
-background-color: qlineargradient(spread:pad, x1:0.21, y1:0.187773, x2:0.466, y2:1, stop:0 rgba(111, 127, 252, 255), stop:1 rgba(245, 221, 221, 255));</string>
+    <string notr="true">background-color: qlineargradient(spread:pad, x1:0.59, y1:0, x2:0.602273, y2:1, stop:0 rgba(85, 98, 194, 255), stop:0.943182 rgba(229, 195, 226, 255));</string>
    </property>
    <widget class="QComboBox" name="theme_box">
     <property name="geometry">
@@ -109,7 +108,7 @@ background-color: qlineargradient(spread:pad, x1:0.205, y1:0, x2:0.312, y2:1, st
    <widget class="QPushButton" name="ButtonReady">
     <property name="geometry">
      <rect>
-      <x>640</x>
+      <x>650</x>
       <y>190</y>
       <width>161</width>
       <height>51</height>
@@ -179,26 +178,10 @@ background-color: qlineargradient(spread:pad, x1:0.205, y1:0, x2:0.312, y2:1, st
      <string>Hello, user!</string>
     </property>
    </widget>
-   <widget class="Line" name="line_3">
-    <property name="geometry">
-     <rect>
-      <x>320</x>
-      <y>260</y>
-      <width>961</width>
-      <height>16</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">background-color: rgb(155, 164, 247);</string>
-    </property>
-    <property name="orientation">
-     <enum>Qt::Horizontal</enum>
-    </property>
-   </widget>
    <widget class="QLabel" name="label_4">
     <property name="geometry">
      <rect>
-      <x>340</x>
+      <x>380</x>
       <y>300</y>
       <width>261</width>
       <height>61</height>
@@ -336,7 +319,7 @@ border-radius: 10px;</string>
    <widget class="QLabel" name="label_11">
     <property name="geometry">
      <rect>
-      <x>800</x>
+      <x>870</x>
       <y>300</y>
       <width>261</width>
       <height>61</height>
@@ -352,27 +335,11 @@ background-color: qlineargradient(spread:pad, x1:0.205, y1:0, x2:0.312, y2:1, st
 scores:</string>
     </property>
    </widget>
-   <widget class="Line" name="line_4">
-    <property name="geometry">
-     <rect>
-      <x>730</x>
-      <y>270</y>
-      <width>20</width>
-      <height>611</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">background-color: rgb(155, 164, 247);</string>
-    </property>
-    <property name="orientation">
-     <enum>Qt::Vertical</enum>
-    </property>
-   </widget>
    <widget class="QPushButton" name="refresh_btn">
     <property name="geometry">
      <rect>
-      <x>1070</x>
-      <y>750</y>
+      <x>660</x>
+      <y>680</y>
       <width>141</width>
       <height>61</height>
      </rect>
@@ -386,21 +353,11 @@ color: rgb(255, 255, 255);
      <string>Refresh</string>
     </property>
    </widget>
-   <widget class="QListView" name="listView">
-    <property name="geometry">
-     <rect>
-      <x>60</x>
-      <y>650</y>
-      <width>231</width>
-      <height>161</height>
-     </rect>
-    </property>
-   </widget>
    <widget class="QLabel" name="warning_label">
     <property name="geometry">
      <rect>
-      <x>840</x>
-      <y>200</y>
+      <x>640</x>
+      <y>250</y>
       <width>201</width>
       <height>41</height>
      </rect>
@@ -414,25 +371,6 @@ background-color: qlineargradient(spread:pad, x1:0.205, y1:0, x2:0.312, y2:1, st
      <string>Please choose a profession!</string>
     </property>
    </widget>
-   <widget class="QLabel" name="label_5">
-    <property name="geometry">
-     <rect>
-      <x>70</x>
-      <y>690</y>
-      <width>211</width>
-      <height>71</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">font: 24pt &quot;MS Shell Dlg 2&quot;;
-color: rgb(255, 255, 255);
-background-color: qlineargradient(spread:pad, x1:0.205, y1:0, x2:0.312, y2:1, stop:0 rgba(100, 241, 255, 0), stop:1 rgba(245, 221, 221, 0));</string>
-    </property>
-    <property name="text">
-     <string>Hello there ^^</string>
-    </property>
-   </widget>
-   <zorder>line_4</zorder>
    <zorder>theme_box</zorder>
    <zorder>label</zorder>
    <zorder>ButtonReady</zorder>
@@ -440,7 +378,6 @@ background-color: qlineargradient(spread:pad, x1:0.205, y1:0, x2:0.312, y2:1, st
    <zorder>line</zorder>
    <zorder>line_2</zorder>
    <zorder>greeting_label</zorder>
-   <zorder>line_3</zorder>
    <zorder>label_4</zorder>
    <zorder>prevlabel1</zorder>
    <zorder>prevlabel2</zorder>
@@ -450,9 +387,7 @@ background-color: qlineargradient(spread:pad, x1:0.205, y1:0, x2:0.312, y2:1, st
    <zorder>bestlabel1</zorder>
    <zorder>label_11</zorder>
    <zorder>refresh_btn</zorder>
-   <zorder>listView</zorder>
    <zorder>warning_label</zorder>
-   <zorder>label_5</zorder>
   </widget>
  </widget>
  <resources/>

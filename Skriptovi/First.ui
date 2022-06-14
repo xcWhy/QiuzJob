@@ -32,7 +32,7 @@ rgb(240, 240, 240);</string>
    <property name="styleSheet">
     <string notr="true">QWidget#Background{
 
-	background-color: qlineargradient(spread:pad, x1:0.59, y1:0, x2:0.602273, y2:1, stop:0 rgba(158, 131, 150, 255), stop:0.943182 rgba(229, 195, 226, 255));
+	background-color: qlineargradient(spread:pad, x1:0.59, y1:0, x2:0.602273, y2:1, stop:0 rgba(85, 98, 194, 255), stop:0.943182 rgba(229, 195, 226, 255));
 
 }</string>
    </property>
@@ -53,7 +53,7 @@ rgb(240, 240, 240);</string>
 	font: 52pt &quot;Rockwell&quot;;
 	setStyleSheet:(&quot;background-color: rgba(0,0,0,0)&quot;);
 	color: rgb(255, 255, 255);
-	background-color: qlineargradient(spread:pad, x1:0.59, y1:0, x2:0.602273, y2:1, stop:0 rgba(158, 131, 150, 255), stop:0.943182 rgba(229, 195, 226, 255));
+	background-color: qlineargradient(spread:pad, x1:0.635455, y1:0.227, x2:0.642046, y2:0, stop:0 rgba(85, 98, 194, 255), stop:0.943182 rgba(229, 195, 226, 255));
 }
 
 
@@ -78,7 +78,7 @@ rgb(240, 240, 240);</string>
 	setStyleSheet:(&quot;background-color: rgba(0,0,0,0)&quot;);
 	color: rgb(255, 255, 255);
 
-background-color: qlineargradient(spread:pad, x1:0.59, y1:0, x2:0.602273, y2:1, stop:0 rgba(158, 96, 141, 255), stop:0.943182 rgba(229, 195, 226, 255));
+background-color: qlineargradient(spread:pad, x1:0.59, y1:0, x2:0.602273, y2:1, stop:0 rgba(85, 98, 194, 255), stop:0.943182 rgba(229, 195, 226, 255));
 
 </string>
     </property>
@@ -101,7 +101,7 @@ background-color: qlineargradient(spread:pad, x1:0.59, y1:0, x2:0.602273, y2:1, 
 	setStyleSheet:(&quot;background-color: rgba(0,0,0,0)&quot;);
 	color: rgb(255, 255, 255);
 
-background-color: qlineargradient(spread:pad, x1:0.59, y1:0, x2:0.602273, y2:1, stop:0 rgba(158, 96, 141, 255), stop:0.943182 rgba(229, 195, 226, 255));
+background-color: qlineargradient(spread:pad, x1:0.59, y1:0, x2:0.602273, y2:1, stop:0 rgba(85, 98, 194, 255), stop:0.943182 rgba(229, 195, 226, 255));
 
 </string>
     </property>
@@ -133,13 +133,13 @@ background-color: qlineargradient(spread:pad, x1:0.205, y1:0, x2:0.312, y2:1, st
     <property name="geometry">
      <rect>
       <x>60</x>
-      <y>90</y>
+      <y>170</y>
       <width>16</width>
       <height>741</height>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color: qlineargradient(spread:pad, x1:0.59, y1:0, x2:0.602273, y2:1, stop:0 rgba(158, 51, 128, 255), stop:0.943182 rgba(229, 195, 226, 255));</string>
+     <string notr="true">background-color: qlineargradient(spread:pad, x1:0.59, y1:0, x2:0.602273, y2:1, stop:0 rgba(85, 98, 194, 255), stop:0.943182 rgba(229, 195, 226, 255));</string>
     </property>
     <property name="orientation">
      <enum>Qt::Vertical</enum>
@@ -149,13 +149,13 @@ background-color: qlineargradient(spread:pad, x1:0.205, y1:0, x2:0.312, y2:1, st
     <property name="geometry">
      <rect>
       <x>120</x>
-      <y>90</y>
+      <y>170</y>
       <width>16</width>
       <height>741</height>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color: qlineargradient(spread:pad, x1:0.59, y1:0, x2:0.602273, y2:1, stop:0 rgba(158, 51, 128, 255), stop:0.943182 rgba(229, 195, 226, 255));</string>
+     <string notr="true">background-color: qlineargradient(spread:pad, x1:0.59, y1:0, x2:0.602273, y2:1, stop:0 rgba(85, 98, 194, 255), stop:0.943182 rgba(229, 195, 226, 255));</string>
     </property>
     <property name="orientation">
      <enum>Qt::Vertical</enum>
@@ -165,13 +165,13 @@ background-color: qlineargradient(spread:pad, x1:0.205, y1:0, x2:0.312, y2:1, st
     <property name="geometry">
      <rect>
       <x>180</x>
-      <y>90</y>
+      <y>170</y>
       <width>16</width>
       <height>741</height>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color: qlineargradient(spread:pad, x1:0.59, y1:0, x2:0.602273, y2:1, stop:0 rgba(158, 51, 128, 255), stop:0.943182 rgba(229, 195, 226, 255));</string>
+     <string notr="true">background-color: qlineargradient(spread:pad, x1:0.59, y1:0, x2:0.602273, y2:1, stop:0 rgba(85, 98, 194, 255), stop:0.943182 rgba(229, 195, 226, 255));</string>
     </property>
     <property name="orientation">
      <enum>Qt::Vertical</enum>
@@ -181,77 +181,13 @@ background-color: qlineargradient(spread:pad, x1:0.205, y1:0, x2:0.312, y2:1, st
     <property name="geometry">
      <rect>
       <x>240</x>
-      <y>90</y>
+      <y>170</y>
       <width>16</width>
       <height>741</height>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color: qlineargradient(spread:pad, x1:0.59, y1:0, x2:0.602273, y2:1, stop:0 rgba(158, 51, 128, 255), stop:0.943182 rgba(229, 195, 226, 255));</string>
-    </property>
-    <property name="orientation">
-     <enum>Qt::Vertical</enum>
-    </property>
-   </widget>
-   <widget class="Line" name="line_11">
-    <property name="geometry">
-     <rect>
-      <x>1140</x>
-      <y>100</y>
-      <width>16</width>
-      <height>741</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">background-color: qlineargradient(spread:pad, x1:0.59, y1:0, x2:0.602273, y2:1, stop:0 rgba(158, 51, 128, 255), stop:0.943182 rgba(229, 195, 226, 255));</string>
-    </property>
-    <property name="orientation">
-     <enum>Qt::Vertical</enum>
-    </property>
-   </widget>
-   <widget class="Line" name="line_12">
-    <property name="geometry">
-     <rect>
-      <x>960</x>
-      <y>100</y>
-      <width>16</width>
-      <height>741</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">background-color: qlineargradient(spread:pad, x1:0.59, y1:0, x2:0.602273, y2:1, stop:0 rgba(158, 51, 128, 255), stop:0.943182 rgba(229, 195, 226, 255));</string>
-    </property>
-    <property name="orientation">
-     <enum>Qt::Vertical</enum>
-    </property>
-   </widget>
-   <widget class="Line" name="line_13">
-    <property name="geometry">
-     <rect>
-      <x>1080</x>
-      <y>100</y>
-      <width>16</width>
-      <height>741</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">background-color: qlineargradient(spread:pad, x1:0.59, y1:0, x2:0.602273, y2:1, stop:0 rgba(158, 51, 128, 255), stop:0.943182 rgba(229, 195, 226, 255));</string>
-    </property>
-    <property name="orientation">
-     <enum>Qt::Vertical</enum>
-    </property>
-   </widget>
-   <widget class="Line" name="line_14">
-    <property name="geometry">
-     <rect>
-      <x>1020</x>
-      <y>100</y>
-      <width>16</width>
-      <height>741</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">background-color: qlineargradient(spread:pad, x1:0.59, y1:0, x2:0.602273, y2:1, stop:0 rgba(158, 51, 128, 255), stop:0.943182 rgba(229, 195, 226, 255));</string>
+     <string notr="true">background-color: qlineargradient(spread:pad, x1:0.59, y1:0, x2:0.602273, y2:1, stop:0 rgba(85, 98, 194, 255), stop:0.943182 rgba(229, 195, 226, 255));</string>
     </property>
     <property name="orientation">
      <enum>Qt::Vertical</enum>
@@ -260,8 +196,8 @@ background-color: qlineargradient(spread:pad, x1:0.205, y1:0, x2:0.312, y2:1, st
    <widget class="Line" name="line_7">
     <property name="geometry">
      <rect>
-      <x>10</x>
-      <y>160</y>
+      <x>0</x>
+      <y>150</y>
       <width>1221</width>
       <height>16</height>
      </rect>
@@ -273,10 +209,74 @@ background-color: qlineargradient(spread:pad, x1:0.205, y1:0, x2:0.312, y2:1, st
      <enum>Qt::Horizontal</enum>
     </property>
    </widget>
-   <zorder>line_12</zorder>
-   <zorder>line_14</zorder>
-   <zorder>line_11</zorder>
-   <zorder>line_13</zorder>
+   <widget class="Line" name="line_8">
+    <property name="geometry">
+     <rect>
+      <x>1160</x>
+      <y>150</y>
+      <width>16</width>
+      <height>741</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: qlineargradient(spread:pad, x1:0.59, y1:0, x2:0.602273, y2:1, stop:0 rgba(85, 98, 194, 255), stop:0.943182 rgba(229, 195, 226, 255));</string>
+    </property>
+    <property name="orientation">
+     <enum>Qt::Vertical</enum>
+    </property>
+   </widget>
+   <widget class="Line" name="line_3">
+    <property name="geometry">
+     <rect>
+      <x>980</x>
+      <y>150</y>
+      <width>16</width>
+      <height>741</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: qlineargradient(spread:pad, x1:0.59, y1:0, x2:0.602273, y2:1, stop:0 rgba(85, 98, 194, 255), stop:0.943182 rgba(229, 195, 226, 255));</string>
+    </property>
+    <property name="orientation">
+     <enum>Qt::Vertical</enum>
+    </property>
+   </widget>
+   <widget class="Line" name="line_9">
+    <property name="geometry">
+     <rect>
+      <x>1100</x>
+      <y>150</y>
+      <width>16</width>
+      <height>741</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: qlineargradient(spread:pad, x1:0.59, y1:0, x2:0.602273, y2:1, stop:0 rgba(85, 98, 194, 255), stop:0.943182 rgba(229, 195, 226, 255));</string>
+    </property>
+    <property name="orientation">
+     <enum>Qt::Vertical</enum>
+    </property>
+   </widget>
+   <widget class="Line" name="line_4">
+    <property name="geometry">
+     <rect>
+      <x>1040</x>
+      <y>150</y>
+      <width>16</width>
+      <height>741</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: qlineargradient(spread:pad, x1:0.59, y1:0, x2:0.602273, y2:1, stop:0 rgba(85, 98, 194, 255), stop:0.943182 rgba(229, 195, 226, 255));</string>
+    </property>
+    <property name="orientation">
+     <enum>Qt::Vertical</enum>
+    </property>
+   </widget>
+   <zorder>line_9</zorder>
+   <zorder>line_3</zorder>
+   <zorder>line_4</zorder>
+   <zorder>line_8</zorder>
    <zorder>line_5</zorder>
    <zorder>line_6</zorder>
    <zorder>line_2</zorder>

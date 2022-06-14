@@ -8,18 +8,18 @@ import sqlite3
 
 #da se napravqt nai-skoroshnite da izlizat nai-otgore
 #da se napravi max
+
 #da se namerqt vyprosi (pone 10), za se puskat na random
-#tochki kym procenti
+
 #da se smeni nachina za poluchavane na tochki
+
+#dizainite da se opravqt
+#da se opravqt globalnite promenlivi
+#da se sloji da se smenq teksta ri profesiite - da ti dava koq si izbral
 
 questionCount = 0
 maxPoints = 0
 
-
-prevText = ['0', '0', '0']
-bestText = ['0', '0', '0']
-prevJob = ['0', '0', '0']
-bestJob = ['0', '0', '0']
 job_index = -1
 job_text = str()
 
@@ -29,7 +29,7 @@ class WelcomeScreen(QDialog):
         super(WelcomeScreen, self).__init__()
         loadUi("First.ui", self)
         self.Login_btn.clicked.connect(self.gotologin)
-        self.Signin_btn.clicked.connect(self.gotosignin) # V MOMENTA NQMA DA RABOTI ZARADI TOVA TUK <<<<<<<<<<<
+        self.Signin_btn.clicked.connect(self.gotosignin)
 
     def gotologin(self):
         login = LoginScreen()
@@ -61,7 +61,6 @@ class SigninScreen(QDialog):
             self.warning_label.show()
 
         else:
-
             connection = sqlite3.connect("test2.db")
             cur = connection.cursor()
             print("Successfully Connected to SQLite")
@@ -74,6 +73,7 @@ class SigninScreen(QDialog):
 
             self.gologin_btn.show()
             self.gologin_btn.clicked.connect(self.gotologin)
+
     def gotologin(self):
         login = LoginScreen()
         widget.addWidget(login)
@@ -85,7 +85,6 @@ class LoginScreen(QDialog):
         loadUi("LoginScreen.ui", self)
         #self.wrong_label.hide()
         self.passwordfield.setEchoMode(QtWidgets.QLineEdit.Password)
-        self.back_btn.clicked.connect(self.gotowelcome)
         self.login_btn.clicked.connect(self.loginfunc)
 
     def loginfunc(self):
@@ -113,11 +112,6 @@ class LoginScreen(QDialog):
         profile = ProfileScreen(username)
         widget.addWidget(profile)
         widget.setCurrentIndex(widget.currentIndex() + 1)
-
-    def gotowelcome(self): # VERY BROKENNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
-        welcome = WelcomeScreen()
-        widget.addWidget(welcome)
-        widget.setCurrentIndex(widget.currentIndex() - 1)
 
 
 class ProfileScreen(QDialog):
@@ -164,8 +158,8 @@ class ProfileScreen(QDialog):
         print(rows)
 
         for i in range(len(rows)):
-            self.prevLabels[i].setText(str(f'{rows[i][0]} : {rows[i][1]}'))
-            self.bestLabels[i].setText(str(f'{rows[i][0]} : {rows[i][1]}'))
+            self.prevLabels[i].setText(str(f'{rows[i][0]} : {rows[i][1]}%'))
+            self.bestLabels[i].setText(str(f'{rows[i][0]} : {rows[i][1]}%'))
 
     def theme_chooser(self):
         global job_index, job_text
@@ -196,13 +190,15 @@ class ProfileScreen(QDialog):
     def refresh_page(self):
         global prevJob, bestJob, job_text, maxPoints
 
+        percents = (maxPoints * 100) / 500
+
         connection = sqlite3.connect("results.db")
         cur = connection.cursor()
         print("Successfully Connected to SQLite")
 
         if job_text != '' and maxPoints != 0:
             cur.execute("INSERT INTO res_questions (theme, score, user) VALUES (?, ?, ?);",
-                        (job_text, maxPoints, self.user))
+                        (job_text, percents, self.user))
             connection.commit()
 
         # self.theme_chooser()
