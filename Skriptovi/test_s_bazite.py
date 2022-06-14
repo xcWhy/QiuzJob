@@ -6,15 +6,20 @@ from PyQt5.QtGui import QPixmap
 
 import sqlite3
 
-
 connection = sqlite3.connect("results.db")
 cur = connection.cursor()
 print("Successfully Connected to SQLite")
 
-user = 'eli'
+cur.execute('SELECT theme, score FROM res_questions WHERE user = ?', ('eli',))
 
-cur.execute('SELECT theme, score FROM res_questions WHERE user = ?', (user,))
+rows = cur.fetchall()
 
-rows = cur.fetchmany(3)
+rezultati = []
 
-print(rows)
+for i in range(len(rows) - 1, 0, -1):
+    rezultati.append(rows[i])
+    if len(rezultati) == 3:
+        break
+
+
+print(rezultati)

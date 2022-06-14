@@ -25,7 +25,7 @@
    <property name="styleSheet">
     <string notr="true">background-color: qlineargradient(spread:pad, x1:0.59, y1:0, x2:0.602273, y2:1, stop:0 rgba(85, 98, 194, 255), stop:0.943182 rgba(229, 195, 226, 255));</string>
    </property>
-   <widget class="QLabel" name="label">
+   <widget class="QLabel" name="proff_label">
     <property name="geometry">
      <rect>
       <x>240</x>

@@ -11,9 +11,6 @@ import sqlite3
 
 #da se namerqt vyprosi (pone 10), za se puskat na random
 
-
-#dizainite da se opravqt
-
 #da se sloji da se smenq teksta ri profesiite - da ti dava koq si izbral
 
 questionCount = 0
@@ -152,13 +149,19 @@ class ProfileScreen(QDialog):
 
         cur.execute('SELECT theme, score FROM res_questions WHERE user = ?', (self.user,))
 
-        rows = cur.fetchmany(3)
+        rows = cur.fetchall()
 
-        print(rows)
+        rezultati = []
 
-        for i in range(len(rows)):
-            self.prevLabels[i].setText(str(f'{rows[i][0]} : {rows[i][1]}%'))
-            self.bestLabels[i].setText(str(f'{rows[i][0]} : {rows[i][1]}%'))
+        for i in range(len(rows)-1, 0, -1):
+            rezultati.append(rows[i])
+            if len(rezultati) == 3:
+                break
+        print(rezultati)
+
+        for i in range(len(rezultati)):
+            self.prevLabels[i].setText(str(f'{rezultati[i][0]} : {rezultati[i][1]}%'))
+            self.bestLabels[i].setText(str(f'{rezultati[i][0]} : {rezultati[i][1]}%'))
 
     def theme_chooser(self):
         global job_index, job_text
@@ -209,9 +212,12 @@ class ProfileScreen(QDialog):
 
 class QuestionsScreen(QDialog):  # oshte edna funkciq kaoqto da refreshva i da ne precakva vyprosite
     def __init__(self, user):
-        global questionCount, maxPoints, job_index, questionCount
+        global questionCount, maxPoints, job_index, questionCount, job_text
         super(QuestionsScreen, self).__init__()
         loadUi("Questions.ui", self)
+
+        #self.proff_label.setText(f'How suitable are you for a {job_text}?')
+
         self.user = user
         self.refresh()
         # self.done_btn.hide()
