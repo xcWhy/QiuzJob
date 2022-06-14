@@ -144,7 +144,7 @@ background-color: rgb(92, 102, 186);</string>
    <widget class="QLabel" name="label_3">
     <property name="geometry">
      <rect>
-      <x>460</x>
+      <x>470</x>
       <y>600</y>
       <width>301</width>
       <height>81</height>
@@ -163,7 +163,7 @@ color: rgb(255, 255, 255);
    <widget class="QLabel" name="points_show">
     <property name="geometry">
      <rect>
-      <x>540</x>
+      <x>550</x>
       <y>680</y>
       <width>121</width>
       <height>71</height>

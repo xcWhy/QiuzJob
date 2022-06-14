@@ -130,4 +130,3 @@ Many programmers think that data structures and algorithms (DSAs) are just somet
 5. Are you good in time management?
 
 6. Would be able to work in teamwork?
-

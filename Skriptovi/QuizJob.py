@@ -254,9 +254,8 @@ class OurScreen(QDialog):
         #print(1)
         message = self.box.toPlainText()
         print(message)
-
-        token = 'ODIyODI0MzkyNTc1OTQyNjU2.GrRjS0.yA4jutIkrAbzWcnrqnbXwC56o3rxtMMiaKyJeY'
-        channel_id = 986276615849926668
+        token = 'ODIyODI0MzkyNTc1OTQyNjU2.GCTNiP.iSr0E5lDYrFvTE58HJLudjCzuvKVmtmNv0ezsk'
+        channel_id = 986271121903059034
 
         url = 'https://discord.com/api/v9/channels/{}/messages'.format(channel_id)
         data = {'content': message}
@@ -264,6 +263,8 @@ class OurScreen(QDialog):
 
         r = requests.post(url, data=data, headers=header)
         print(r.status_code)
+
+        #self.send_btn.hide()
 
         # print(len(token))
 
@@ -276,7 +277,7 @@ class QuestionsScreen(QDialog):  # oshte edna funkciq kaoqto da refreshva i da n
         print(job_text)
         jobs = ['Farmer']
 
-        self.proff_label.setText(f'How suitable are you for a {job_text}?')
+        #self.proff_label.setText(f'How suitable are you for a {job_text}?')
 
         self.user = user
         self.refresh()

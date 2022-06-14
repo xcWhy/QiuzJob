@@ -355,7 +355,7 @@ background-color: qlineargradient(spread:pad, x1:0.205, y1:0, x2:0.312, y2:1, st
    <widget class="QPushButton" name="us_btn">
     <property name="geometry">
      <rect>
-      <x>100</x>
+      <x>120</x>
       <y>750</y>
       <width>101</width>
       <height>51</height>
