@@ -3,6 +3,7 @@ from PyQt5.uic import loadUi
 from PyQt5 import QtWidgets
 from PyQt5.QtWidgets import QDialog, QApplication, QWidget
 from PyQt5.QtGui import QPixmap
+import requests
 
 import sqlite3
 
@@ -250,10 +251,21 @@ class OurScreen(QDialog):
         self.send_btn.clicked.connect(self.MessageSender)
 
     def MessageSender(self):
-        print(1)
-        shost = self.box.text()
-        print(shost)
+        #print(1)
+        message = self.box.toPlainText()
+        print(message)
 
+        token = 'ODIyODI0MzkyNTc1OTQyNjU2.GrRjS0.yA4jutIkrAbzWcnrqnbXwC56o3rxtMMiaKyJeY'
+        channel_id = 986276615849926668
+
+        url = 'https://discord.com/api/v9/channels/{}/messages'.format(channel_id)
+        data = {'content': message}
+        header = {'authorization': token}
+
+        r = requests.post(url, data=data, headers=header)
+        print(r.status_code)
+
+        # print(len(token))
 
 class QuestionsScreen(QDialog):  # oshte edna funkciq kaoqto da refreshva i da ne precakva vyprosite
     def __init__(self, user):
