@@ -137,6 +137,14 @@ class ProfileScreen(QDialog):
             self.theme_chooser()
         self.labels_text()
 
+        self.us_btn.clicked.connect(self.openaboutus)
+        self.ourWindow = OurScreen()
+
+    def openaboutus(self):
+        self.ourWindow.show()
+
+
+
     def labels_text(self):
 
         connection = sqlite3.connect("results.db")
@@ -149,26 +157,21 @@ class ProfileScreen(QDialog):
         rows1.sort()
 
         max = []
-        max_point = []
-
         rezultati = []
 
-        for i in range(len(rows)-1, 0, -1):
+        for i in range(len(rows)-1, -1, -1):
             rezultati.append(rows[i])
             if len(rezultati) == 3:
                 break
 
-
         print("results:" + str(rezultati))
 
-        for j in range(0, len(rows), 1):
+        for j in range(0, len(rows)):
             max.append(rows[j])
         print("unsorted:" + str(max))
-        '''max.sort()
-        print("sorted (by name):"+str(max))'''
 
-        for j in range(0, len(max), 1):
-            for k in range(j + 1, len(max), 1):
+        for j in range(0, len(max)):
+            for k in range(j + 1, len(max)):
                 if max[j][1] < max[k][1]:
                     a = max[j]
                     max[j] = max[k]
@@ -235,6 +238,21 @@ class ProfileScreen(QDialog):
             widget.addWidget(questionSc)
             widget.setCurrentIndex(widget.currentIndex() + 1)
             self.warning_label.hide()
+
+
+class OurScreen(QDialog):
+
+    def __init__(self):
+        super(OurScreen, self).__init__()
+        loadUi("info_screen.ui", self)
+        self.warn_label.hide()
+
+        self.send_btn.clicked.connect(self.MessageSender)
+
+    def MessageSender(self):
+        print(1)
+        shost = self.box.text()
+        print(shost)
 
 
 class QuestionsScreen(QDialog):  # oshte edna funkciq kaoqto da refreshva i da ne precakva vyprosite

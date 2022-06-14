@@ -86,25 +86,6 @@ background-color: rgb(155, 164, 247);</string>
      <enum>Qt::Horizontal</enum>
     </property>
    </widget>
-   <widget class="QLabel" name="label">
-    <property name="geometry">
-     <rect>
-      <x>110</x>
-      <y>50</y>
-      <width>151</width>
-      <height>91</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">
-	font: 32pt &quot;Rockwell&quot;;
-color: rgb(255, 255, 255);
-background-color: qlineargradient(spread:pad, x1:0.205, y1:0, x2:0.312, y2:1, stop:0 rgba(100, 241, 255, 0), stop:1 rgba(245, 221, 221, 0));</string>
-    </property>
-    <property name="text">
-     <string>Profile</string>
-    </property>
-   </widget>
    <widget class="QPushButton" name="ButtonReady">
     <property name="geometry">
      <rect>
@@ -371,8 +352,46 @@ background-color: qlineargradient(spread:pad, x1:0.205, y1:0, x2:0.312, y2:1, st
      <string>Please choose a profession!</string>
     </property>
    </widget>
+   <widget class="QPushButton" name="us_btn">
+    <property name="geometry">
+     <rect>
+      <x>100</x>
+      <y>750</y>
+      <width>101</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">
+background-color: rgb(85, 98, 194);
+color: rgb(255, 255, 255);
+	font: 12pt &quot;Rockwell&quot;;
+</string>
+    </property>
+    <property name="text">
+     <string>About us</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="greeting_label_2">
+    <property name="geometry">
+     <rect>
+      <x>110</x>
+      <y>50</y>
+      <width>131</width>
+      <height>81</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">
+	font: 32pt &quot;Rockwell&quot;;
+color: rgb(255, 255, 255);
+background-color: qlineargradient(spread:pad, x1:0.205, y1:0, x2:0.312, y2:1, stop:0 rgba(100, 241, 255, 0), stop:1 rgba(245, 221, 221, 0));</string>
+    </property>
+    <property name="text">
+     <string>Profile</string>
+    </property>
+   </widget>
    <zorder>theme_box</zorder>
-   <zorder>label</zorder>
    <zorder>ButtonReady</zorder>
    <zorder>label_2</zorder>
    <zorder>line</zorder>
@@ -388,6 +407,8 @@ background-color: qlineargradient(spread:pad, x1:0.205, y1:0, x2:0.312, y2:1, st
    <zorder>label_11</zorder>
    <zorder>refresh_btn</zorder>
    <zorder>warning_label</zorder>
+   <zorder>us_btn</zorder>
+   <zorder>greeting_label_2</zorder>
   </widget>
  </widget>
  <resources/>
