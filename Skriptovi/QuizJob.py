@@ -276,7 +276,7 @@ class QuestionsScreen(QDialog):  # oshte edna funkciq kaoqto da refreshva i da n
         print(job_text)
         jobs = ['Farmer']
 
-        #self.proff_label.setText(f'How suitable are you for a {job_text}?')
+        self.proff_label.setText(f'How suitable are you for a {job_text}?')
 
         self.user = user
         self.refresh()
