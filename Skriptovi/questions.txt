@@ -1,0 +1,30 @@
+Доктор
+1. Are you responsible?
+2. Do you put the human life on first position?
+3. Do you love studying?
+4. Are you interested in Biology and Chemistry?
+5. Are you resistant to mental pressure?
+6. You are not afraid of blood?
+7. You are not afraid of needles?
+8. Do you have the necessary education?
+9. Are you precise?
+10. Do you like helping other people?
+
+Готвач
+1. Do you like cooking?
+2. Do you use spices well?
+3. Can you estimate what kind of flavours supplement each other?
+4. Do you think the food is not only for the body but also for the soul?
+5. Do you like eating?
+6. Do you like tasting new kind of food?
+7. Are people impressed by your dishes?
+8. Can you prepare something delicious?
+9. Do you know which the five basic sauces are?
+10. Do you know some unknown products?
+
+Програмист
+1. Do you know some programming languages?
+2. Are you interested in technologies? 
+3. Do like Maths?
+4. Can you think logically?
+5. Do you like learning new things?
