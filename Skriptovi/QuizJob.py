@@ -8,26 +8,17 @@ import random
 
 import sqlite3
 
-#da se napravqt nai-skoroshnite da izlizat nai-otgore
-#da se napravi max
+#da se sloji da se smenq teksta ri profesiite - da ti dava koq si izbral // chrez ogromen buton
 
-#da se namerqt vyprosi (pone 10), za se puskat na random
-
-#da se sloji da se smenq teksta ri profesiite - da ti dava koq si izbral
-
-#malko butonche koeto da otvarq info za nas v profila na otdelen prozorec
-#send emails
 #da se napravi mqsto otkydeto potrebitelq shte moje da si vijda rezultatite (vischkite)
 #forgot password
-
-#wanrnig ako sme si dali 0 tochki na nqkoi vypros
 
 questionCount = 0
 maxPoints = 0
 
 job_index = -1
 job_text = str()
-
+questionsTest = []
 
 class WelcomeScreen(QDialog):
     def __init__(self):
@@ -145,8 +136,6 @@ class ProfileScreen(QDialog):
     def openaboutus(self):
         self.ourWindow.show()
 
-
-
     def labels_text(self):
 
         connection = sqlite3.connect("results.db")
@@ -255,9 +244,8 @@ class OurScreen(QDialog):
         #print(1)
         message = self.box.toPlainText()
         print(message)
-
         token = 'ODIyODI0MzkyNTc1OTQyNjU2.GCTNiP.iSr0E5lDYrFvTE58HJLudjCzuvKVmtmNv0ezsk'
-        channel_id = 986276615849926668
+        channel_id = 986271121903059034
 
         url = 'https://discord.com/api/v9/channels/{}/messages'.format(channel_id)
         data = {'content': message}
@@ -266,19 +254,28 @@ class OurScreen(QDialog):
         r = requests.post(url, data=data, headers=header)
         print(r.status_code)
 
+        #self.send_btn.hide()
+
         # print(len(token))
 
-class QuestionsScreen(QDialog):  # oshte edna funkciq koqto da refreshva i da ne precakva vyprosite
+class QuestionsScreen(QDialog):  # oshte edna funkciq kaoqto da refreshva i da ne precakva vyprosite
     def __init__(self, user):
-        global questionCount, maxPoints, job_index, questionCount, job_text, questionNum
+        global questionCount, maxPoints, job_index, questionCount, job_text, questionNum, questionsTest
         super(QuestionsScreen, self).__init__()
         loadUi("Questions.ui", self)
 
         print(job_text)
-        jobs = ['Farmer']
 
-        self.proff_label.setText(f'How suitable are you for a {job_text}?')
-        questionNum = random.randint(0, 9)
+        questionsTest = []
+
+        while len(questionsTest) != 5:
+            index = random.randint(0, 9)
+            if Questions[job_index][index] not in questionsTest:
+                questionsTest.append(Questions[job_index][index])
+
+        #self.proff_label.setText(f'How suitable are you for a {job_text}?')
+        self.proff_label.setText(f'How suitable are you for this job?')
+        #questionNum = random.randint(0, 9)
 
         self.user = user
         self.refresh()
@@ -288,15 +285,17 @@ class QuestionsScreen(QDialog):  # oshte edna funkciq koqto da refreshva i da ne
         self.points.setMaximum(100)
         self.isVis = self.done_btn.isVisible
 
-        self.questions_label.setText(Questions[job_index][questionNum])
+        self.questions_label.setText(f'{questionCount + 1}. {questionsTest[questionCount]}')
 
         self.nextquestion.clicked.connect(self.question_changer_forward)
         self.prevquestion.clicked.connect(self.question_changer_backward)
         self.done_btn.clicked.connect(self.ready)
 
     def question_changer_forward(self):
-        global questionCount, maxPoints, job_index, questionNum
-        questionNum = random.randint(0, 9)
+        global questionCount, maxPoints, job_index, questionNum, questionsTest
+
+        #questionNum = random.randint(0, 9)
+
         if self.points.value() == 0:
             self.warn_label.show()
 
@@ -311,15 +310,16 @@ class QuestionsScreen(QDialog):  # oshte edna funkciq koqto da refreshva i da ne
                 self.btn_shower(self.nextquestion)
                 self.done_btn.show()
 
-            self.questions_label.setText(
-                Questions[job_index][questionNum])
+            self.questions_label.setText(f'{questionCount + 1}. {questionsTest[questionCount]}')
             self.points.setValue(0)
             self.points_show.setText(str(maxPoints))
             self.warn_label.hide()
 
     def question_changer_backward(self):
-        global questionCount, maxPoints, job_index, questionNum
-        questionNum = random.randint(0, 9)
+        global questionCount, maxPoints, job_index, questionNum, questionsTest
+
+        #questionNum = random.randint(0, 9)
+
         if self.points.value() == 0:
             self.warn_label.show()
 
@@ -332,7 +332,7 @@ class QuestionsScreen(QDialog):  # oshte edna funkciq koqto da refreshva i da ne
                 self.btn_shower(self.prevquestion)
 
             maxPoints -= int(self.points.value())
-            self.questions_label.setText(Questions[job_index][questionNum])  # opravi tukkkk <<<<
+            self.questions_label.setText(f'{questionCount + 1}. {questionsTest[questionCount]}')  # opravi tukkkk <<<<
             self.points.setValue(0)
             self.points_show.setText(str(maxPoints))
             self.warn_label.hide()
@@ -342,11 +342,10 @@ class QuestionsScreen(QDialog):  # oshte edna funkciq koqto da refreshva i da ne
         self.btn.hide()
 
     def refresh(self):
-        global questionCount, job_index, questionNum
-        questionNum = random.randint(0, 9)
+        global questionCount, job_index, questionsTest
         questionCount = 0
-        #job_index = job_index
-        self.questions_label.setText(Questions[job_index][questionNum])
+        job_index = job_index
+        self.questions_label.setText(f'{questionCount + 1}. {questionsTest[questionCount]}')
 
     def ready(self):
         global maxPoints
@@ -362,6 +361,7 @@ Questions = [['Do you have problem-solving skills? / Are you creative / can thin
              ['Are you responsible?', 'Do you put the human life on first position?', 'Do you love studying?', 'Are you interested in Biology and Chemistry?', 'Are you resistant to mental pressure?', 'You are not afraid of blood?', 'You are not afraid of needles?', 'Do you have the necessary education?', 'Are you precise?', 'Do you like helping other people?'],
              ['Do you know some programming languages?', 'Are you interested in technologies?', 'Do like Maths?', 'Can you think logically?', 'Do you like learning new things?', 'Are you good at project management?','Do you know basic data structures and algorithms?','Do you happen to have great problem solving skills?','Would you describe yourself as patient?','Would be able to work in teamwork?'],
              ]
+
 
 # main
 
