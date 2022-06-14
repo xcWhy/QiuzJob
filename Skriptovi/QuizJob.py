@@ -4,6 +4,7 @@ from PyQt5 import QtWidgets
 from PyQt5.QtWidgets import QDialog, QApplication, QWidget
 from PyQt5.QtGui import QPixmap
 import requests
+import random
 
 import sqlite3
 
@@ -254,8 +255,9 @@ class OurScreen(QDialog):
         #print(1)
         message = self.box.toPlainText()
         print(message)
+
         token = 'ODIyODI0MzkyNTc1OTQyNjU2.GCTNiP.iSr0E5lDYrFvTE58HJLudjCzuvKVmtmNv0ezsk'
-        channel_id = 986271121903059034
+        channel_id = 986276615849926668
 
         url = 'https://discord.com/api/v9/channels/{}/messages'.format(channel_id)
         data = {'content': message}
@@ -264,20 +266,19 @@ class OurScreen(QDialog):
         r = requests.post(url, data=data, headers=header)
         print(r.status_code)
 
-        #self.send_btn.hide()
-
         # print(len(token))
 
-class QuestionsScreen(QDialog):  # oshte edna funkciq kaoqto da refreshva i da ne precakva vyprosite
+class QuestionsScreen(QDialog):  # oshte edna funkciq koqto da refreshva i da ne precakva vyprosite
     def __init__(self, user):
-        global questionCount, maxPoints, job_index, questionCount, job_text
+        global questionCount, maxPoints, job_index, questionCount, job_text, questionNum
         super(QuestionsScreen, self).__init__()
         loadUi("Questions.ui", self)
 
         print(job_text)
         jobs = ['Farmer']
 
-        #self.proff_label.setText(f'How suitable are you for a {job_text}?')
+        self.proff_label.setText(f'How suitable are you for a {job_text}?')
+        questionNum = random.randint(0, 9)
 
         self.user = user
         self.refresh()
@@ -287,15 +288,15 @@ class QuestionsScreen(QDialog):  # oshte edna funkciq kaoqto da refreshva i da n
         self.points.setMaximum(100)
         self.isVis = self.done_btn.isVisible
 
-        self.questions_label.setText(Questions[job_index][questionCount])
+        self.questions_label.setText(Questions[job_index][questionNum])
 
         self.nextquestion.clicked.connect(self.question_changer_forward)
         self.prevquestion.clicked.connect(self.question_changer_backward)
         self.done_btn.clicked.connect(self.ready)
 
     def question_changer_forward(self):
-        global questionCount, maxPoints, job_index
-
+        global questionCount, maxPoints, job_index, questionNum
+        questionNum = random.randint(0, 9)
         if self.points.value() == 0:
             self.warn_label.show()
 
@@ -311,14 +312,14 @@ class QuestionsScreen(QDialog):  # oshte edna funkciq kaoqto da refreshva i da n
                 self.done_btn.show()
 
             self.questions_label.setText(
-                Questions[job_index][questionCount])
+                Questions[job_index][questionNum])
             self.points.setValue(0)
             self.points_show.setText(str(maxPoints))
             self.warn_label.hide()
 
     def question_changer_backward(self):
-        global questionCount, maxPoints, job_index
-
+        global questionCount, maxPoints, job_index, questionNum
+        questionNum = random.randint(0, 9)
         if self.points.value() == 0:
             self.warn_label.show()
 
@@ -331,7 +332,7 @@ class QuestionsScreen(QDialog):  # oshte edna funkciq kaoqto da refreshva i da n
                 self.btn_shower(self.prevquestion)
 
             maxPoints -= int(self.points.value())
-            self.questions_label.setText(Questions[job_index][questionCount])  # opravi tukkkk <<<<
+            self.questions_label.setText(Questions[job_index][questionNum])  # opravi tukkkk <<<<
             self.points.setValue(0)
             self.points_show.setText(str(maxPoints))
             self.warn_label.hide()
@@ -341,10 +342,11 @@ class QuestionsScreen(QDialog):  # oshte edna funkciq kaoqto da refreshva i da n
         self.btn.hide()
 
     def refresh(self):
-        global questionCount, job_index
+        global questionCount, job_index, questionNum
+        questionNum = random.randint(0, 9)
         questionCount = 0
-        job_index = job_index
-        self.questions_label.setText(Questions[job_index][questionCount])
+        #job_index = job_index
+        self.questions_label.setText(Questions[job_index][questionNum])
 
     def ready(self):
         global maxPoints
@@ -354,11 +356,11 @@ class QuestionsScreen(QDialog):  # oshte edna funkciq kaoqto da refreshva i da n
         widget.setCurrentIndex(widget.currentIndex() - 1)
 
 
-Questions = [['Farmer 1', 'Farmer 2', 'Farmer 3', 'Farmer 4', 'Farmer 5', 'lol'],
-             ['Waitress 1', 'Waitress 2', 'Waitress 3', 'Waitress 4', 'Waitress 5', 'lol'],
-             ['Chef 1', 'Chef 2', 'Chef 3', 'Chef 4', 'Chef 5', 'lol'],
-             ['Doctor 1', 'Doctor 2', 'Doctor 3', 'Doctor 4', 'Doctor 5', 'lol'],
-             ['Programmer 1', 'Programmer 2', 'Programmer 3', 'Programmer 4', 'Programmer 5', 'lol'],
+Questions = [['Do you have problem-solving skills? / Are you creative / can think outside the box?', 'Do you have mechanical skills / you can repair things easy?', 'Do you have interpersonal/communication skills?', 'Do you maintain great physical stamina?', 'Are you in good health?', 'Are you good at organizing and managing tasks?','Can you remain flexible and adapt easily when faced to unexpected changes in weather?','Are you up-to-date with technology?','Can you work in teams? / Are you good at teamworks?','Could you describe yourself as trustworthy?'],
+             ['Do you have decent communication and listening skills?', 'Could you describe yourself as being great at multitasking?', 'Do you happen to have good memory?', 'Are you good at following instructions?', 'Do you know more than one language?', 'Do you have high stamina?','Would you be able to maintain proffesionalism in bad scenarios?','Do you have critical thinking?',' Would you describe yourself as patient?','Do you happen to have social perceptiveness skills?'],
+             ['Do you like cooking?', 'Do you use spices well?', 'Can you estimate what kind of flavours supplement each other?', 'Do you think the food is not only for the body but also for the soul?', 'Do you like eating?', 'Do you like tasting new kind of food?','Are people impressed by your dishes?','Can you prepare something delicious?','Do you know which the five basic sauces are?','Do you know some unknown products?'],
+             ['Are you responsible?', 'Do you put the human life on first position?', 'Do you love studying?', 'Are you interested in Biology and Chemistry?', 'Are you resistant to mental pressure?', 'You are not afraid of blood?', 'You are not afraid of needles?', 'Do you have the necessary education?', 'Are you precise?', 'Do you like helping other people?'],
+             ['Do you know some programming languages?', 'Are you interested in technologies?', 'Do like Maths?', 'Can you think logically?', 'Do you like learning new things?', 'Are you good at project management?','Do you know basic data structures and algorithms?','Do you happen to have great problem solving skills?','Would you describe yourself as patient?','Would be able to work in teamwork?'],
              ]
 
 # main
