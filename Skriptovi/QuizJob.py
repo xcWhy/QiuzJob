@@ -190,7 +190,7 @@ class ProfileScreen(QDialog):
     def refresh_page(self):
         global prevJob, bestJob, job_text, maxPoints
 
-        percents = (maxPoints * 100) / 500
+        percents = (maxPoints * 100) // 500
 
         connection = sqlite3.connect("results.db")
         cur = connection.cursor()
@@ -233,6 +233,11 @@ class QuestionsScreen(QDialog):  # oshte edna funkciq kaoqto da refreshva i da n
 
         maxPoints += int(self.points.value())
         print(maxPoints)
+
+        #if questionCount == 0:
+            #self.prevquestion.hide()
+
+        #self.prevquestion.show()
         questionCount += 1
 
         if questionCount == 4:
