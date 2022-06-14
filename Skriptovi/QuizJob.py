@@ -6,12 +6,19 @@ from PyQt5.QtGui import QPixmap
 
 import sqlite3
 
-#da se napravqt nai-skoroshnite da izlizat nai-otgore done
+#da se napravqt nai-skoroshnite da izlizat nai-otgore
 #da se napravi max
 
 #da se namerqt vyprosi (pone 10), za se puskat na random
 
 #da se sloji da se smenq teksta ri profesiite - da ti dava koq si izbral
+
+#malko butonche koeto da otvarq info za nas v profila na otdelen prozorec
+#send emails
+#da se napravi mqsto otkydeto potrebitelq shte moje da si vijda rezultatite (vischkite)
+#forgot password
+
+#wanrnig ako sme si dali 0 tochki na nqkoi vypros
 
 questionCount = 0
 maxPoints = 0
@@ -121,61 +128,53 @@ class ProfileScreen(QDialog):
         self.greeting_label.setText(f'Greetings, {self.user}!')
         self.warning_label.hide()
         self.ButtonReady.clicked.connect(self.gotoquestions)
+
         self.prevLabels = [self.prevlabel1, self.prevlabel2, self.prevlabel3]
         self.bestLabels = [self.bestlabel1, self.bestlabel2, self.bestlabel3]
+
         self.refresh_btn.clicked.connect(self.refresh_page)
         if job_index == -1:
             self.theme_chooser()
         self.labels_text()
 
-    def gotoquestions(self):
-        global maxPoints
-        if self.theme_box.currentText() == '---':
-            self.job_cheker()
-        else:
-            self.theme_chooser()
-            maxPoints = 0
-            questionSc = QuestionsScreen(self.user)
-            widget.addWidget(questionSc)
-            widget.setCurrentIndex(widget.currentIndex() + 1)
-            self.warning_label.hide()
-
     def labels_text(self):
-        global maxPoints, prevText, bestText, job_text, prevJob, bestJob
 
         connection = sqlite3.connect("results.db")
         cur = connection.cursor()
         print("Successfully Connected to SQLite")
 
         cur.execute('SELECT theme, score FROM res_questions WHERE user = ?', (self.user,))
-
         rows = cur.fetchall()
         rows1 = cur.fetchall()
         rows1.sort()
-        print("unsort rows:"+str(rows))
-        rezultati = []
+
         max = []
         max_point = []
+
+        rezultati = []
 
         for i in range(len(rows)-1, 0, -1):
             rezultati.append(rows[i])
             if len(rezultati) == 3:
                 break
-        print("results:"+str(rezultati))
 
-        for j in range(0,len(rows),1):
+
+        print("results:" + str(rezultati))
+
+        for j in range(0, len(rows), 1):
             max.append(rows[j])
         print("unsorted:" + str(max))
         '''max.sort()
         print("sorted (by name):"+str(max))'''
 
-        for j in range(0,len(max),1):
-            for k in range(j+1,len(max),1):
-                if max[j][1]<max[k][1]:
+        for j in range(0, len(max), 1):
+            for k in range(j + 1, len(max), 1):
+                if max[j][1] < max[k][1]:
                     a = max[j]
                     max[j] = max[k]
                     max[k] = a
-        print("rows:"+str(max))
+        print("rows:" + str(max))
+
 
         for i in range(len(rezultati)):
             self.prevLabels[i].setText(str(f'{rezultati[i][0]} : {rezultati[i][1]}%'))
@@ -204,13 +203,11 @@ class ProfileScreen(QDialog):
             job_text = self.theme_box.currentText()
             print(job_index)
 
-    def job_cheker(self):
-        self.warning_label.show()
 
     def refresh_page(self):
         global prevJob, bestJob, job_text, maxPoints
 
-        percents = (maxPoints * 100) // 500
+        percents = (maxPoints * 100) / 500
 
         connection = sqlite3.connect("results.db")
         cur = connection.cursor()
@@ -227,6 +224,18 @@ class ProfileScreen(QDialog):
         job_text = ''
         maxPoints = 0
 
+    def gotoquestions(self):
+        global maxPoints
+        if self.theme_box.currentText() == '---':
+            self.warning_label.show()
+        else:
+            self.theme_chooser()
+            maxPoints = 0
+            questionSc = QuestionsScreen(self.user)
+            widget.addWidget(questionSc)
+            widget.setCurrentIndex(widget.currentIndex() + 1)
+            self.warning_label.hide()
+
 
 class QuestionsScreen(QDialog):  # oshte edna funkciq kaoqto da refreshva i da ne precakva vyprosite
     def __init__(self, user):
@@ -234,12 +243,16 @@ class QuestionsScreen(QDialog):  # oshte edna funkciq kaoqto da refreshva i da n
         super(QuestionsScreen, self).__init__()
         loadUi("Questions.ui", self)
 
+        print(job_text)
+        jobs = ['Farmer']
+
         #self.proff_label.setText(f'How suitable are you for a {job_text}?')
 
         self.user = user
         self.refresh()
         # self.done_btn.hide()
         self.prevquestion.hide()
+        self.warn_label.hide()
         self.points.setMaximum(100)
         self.isVis = self.done_btn.isVisible
 
@@ -252,35 +265,45 @@ class QuestionsScreen(QDialog):  # oshte edna funkciq kaoqto da refreshva i da n
     def question_changer_forward(self):
         global questionCount, maxPoints, job_index
 
-        self.prevquestion.show()
+        if self.points.value() == 0:
+            self.warn_label.show()
 
-        maxPoints += int(self.points.value())
-        print(maxPoints)
-        questionCount += 1
+        else:
+            self.prevquestion.show()
 
-        if questionCount == 4:
-            self.btn_shower(self.nextquestion)
-            self.done_btn.show()
+            maxPoints += int(self.points.value())
+            print(maxPoints)
+            questionCount += 1
 
-        self.questions_label.setText(
-            Questions[job_index][questionCount])  # opravi tukkkk <<<< trqbva da e s dboivna skoba
-        self.points.setValue(0)
-        self.points_show.setText(str(maxPoints))
+            if questionCount == 4:
+                self.btn_shower(self.nextquestion)
+                self.done_btn.show()
+
+            self.questions_label.setText(
+                Questions[job_index][questionCount])
+            self.points.setValue(0)
+            self.points_show.setText(str(maxPoints))
+            self.warn_label.hide()
 
     def question_changer_backward(self):
         global questionCount, maxPoints, job_index
 
-        self.nextquestion.show()
+        if self.points.value() == 0:
+            self.warn_label.show()
 
-        questionCount -= 1
+        else:
+            self.nextquestion.show()
 
-        if questionCount == 0:
-            self.btn_shower(self.prevquestion)
+            questionCount -= 1
 
-        maxPoints -= int(self.points.value())
-        self.questions_label.setText(Questions[job_index][questionCount])  # opravi tukkkk <<<<
-        self.points.setValue(0)
-        self.points_show.setText(str(maxPoints))
+            if questionCount == 0:
+                self.btn_shower(self.prevquestion)
+
+            maxPoints -= int(self.points.value())
+            self.questions_label.setText(Questions[job_index][questionCount])  # opravi tukkkk <<<<
+            self.points.setValue(0)
+            self.points_show.setText(str(maxPoints))
+            self.warn_label.hide()
 
     def btn_shower(self, btn):
         self.btn = btn

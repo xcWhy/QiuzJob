@@ -103,7 +103,7 @@ color: rgb(255, 255, 255);
 </string>
     </property>
     <property name="text">
-     <string>Sign in</string>
+     <string>Sign up</string>
     </property>
    </widget>
    <widget class="QLabel" name="label_2">
