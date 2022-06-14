@@ -169,7 +169,7 @@ border-color: rgb(51, 58, 51);
 color: rgb(255, 255, 255);</string>
     </property>
     <property name="text">
-     <string>Create &lt;3</string>
+     <string>Create '-'</string>
     </property>
    </widget>
    <widget class="QLabel" name="confirm_label">

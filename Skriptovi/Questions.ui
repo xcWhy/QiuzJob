@@ -23,21 +23,8 @@
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">background-color: qlineargradient(spread:pad, x1:0.426, y1:0.00568182, x2:0.517, y2:1, stop:0 rgba(100, 241, 255, 255), stop:1 rgba(245, 221, 221, 255));</string>
+    <string notr="true">background-color: qlineargradient(spread:pad, x1:0.59, y1:0, x2:0.602273, y2:1, stop:0 rgba(85, 98, 194, 255), stop:0.943182 rgba(229, 195, 226, 255));</string>
    </property>
-   <widget class="Line" name="line_2">
-    <property name="geometry">
-     <rect>
-      <x>-10</x>
-      <y>130</y>
-      <width>1301</width>
-      <height>16</height>
-     </rect>
-    </property>
-    <property name="orientation">
-     <enum>Qt::Horizontal</enum>
-    </property>
-   </widget>
    <widget class="QLabel" name="label">
     <property name="geometry">
      <rect>
@@ -59,60 +46,37 @@ color: rgb(255, 255, 255);</string>
    <widget class="QPushButton" name="nextquestion">
     <property name="geometry">
      <rect>
-      <x>620</x>
+      <x>690</x>
       <y>440</y>
-      <width>131</width>
+      <width>181</width>
       <height>61</height>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">font: 24pt &quot;MS Shell Dlg 2&quot;;
-color: rgb(255, 255, 255);
-background-color: rgb(179, 229, 255);</string>
+     <string notr="true">background-color: rgb(92, 102, 186);
+font: 24pt &quot;MS Shell Dlg 2&quot;;
+border-color: rgb(51, 58, 51);
+color: rgb(255, 255, 255);</string>
     </property>
     <property name="text">
      <string>Next -&gt;</string>
     </property>
    </widget>
-   <widget class="Line" name="line">
-    <property name="geometry">
-     <rect>
-      <x>260</x>
-      <y>190</y>
-      <width>481</width>
-      <height>16</height>
-     </rect>
-    </property>
-    <property name="orientation">
-     <enum>Qt::Horizontal</enum>
-    </property>
-   </widget>
-   <widget class="Line" name="line_3">
-    <property name="geometry">
-     <rect>
-      <x>400</x>
-      <y>300</y>
-      <width>501</width>
-      <height>16</height>
-     </rect>
-    </property>
-    <property name="orientation">
-     <enum>Qt::Horizontal</enum>
-    </property>
-   </widget>
    <widget class="QLabel" name="questions_label">
     <property name="geometry">
      <rect>
-      <x>150</x>
-      <y>220</y>
-      <width>911</width>
-      <height>71</height>
+      <x>50</x>
+      <y>180</y>
+      <width>1161</width>
+      <height>81</height>
      </rect>
     </property>
     <property name="styleSheet">
      <string notr="true">font: 24pt &quot;MS Shell Dlg 2&quot;;
+
 color: rgb(255, 255, 255);
-background-color: rgb(179, 229, 255);</string>
+background-color: rgb(107, 113, 199);
+  border-radius: 20px;</string>
     </property>
     <property name="text">
      <string>Question:</string>
@@ -121,29 +85,34 @@ background-color: rgb(179, 229, 255);</string>
    <widget class="QSpinBox" name="points">
     <property name="geometry">
      <rect>
-      <x>490</x>
+      <x>530</x>
       <y>340</y>
       <width>171</width>
       <height>71</height>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">font: 20pt &quot;MS Shell Dlg 2&quot;;</string>
+     <string notr="true">background-color: rgb(92, 102, 186);
+font: 24pt &quot;MS Shell Dlg 2&quot;;
+border-color: rgb(51, 58, 51);
+color: rgb(255, 255, 255);</string>
     </property>
    </widget>
    <widget class="QLabel" name="label_2">
     <property name="geometry">
      <rect>
       <x>40</x>
-      <y>570</y>
-      <width>191</width>
+      <y>560</y>
+      <width>241</width>
       <height>251</height>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">font: 12pt &quot;MS Shell Dlg 2&quot;;
+     <string notr="true">font: 16pt &quot;MS Shell Dlg 2&quot;;
 border-color: rgb(0, 0, 0);
-background-color: rgb(179, 229, 255);</string>
+background-color: rgb(92, 102, 186);
+color: rgb(255, 255, 255);
+  border-radius: 30px;</string>
     </property>
     <property name="text">
      <string>  0-20 = No
@@ -151,32 +120,6 @@ background-color: rgb(179, 229, 255);</string>
   41 - 60 = Maybe
   61 - 80 = I think yes
   81 - 100 = Absolutely</string>
-    </property>
-   </widget>
-   <widget class="Line" name="line_4">
-    <property name="geometry">
-     <rect>
-      <x>30</x>
-      <y>560</y>
-      <width>211</width>
-      <height>16</height>
-     </rect>
-    </property>
-    <property name="orientation">
-     <enum>Qt::Horizontal</enum>
-    </property>
-   </widget>
-   <widget class="Line" name="line_5">
-    <property name="geometry">
-     <rect>
-      <x>220</x>
-      <y>570</y>
-      <width>16</width>
-      <height>241</height>
-     </rect>
-    </property>
-    <property name="orientation">
-     <enum>Qt::Vertical</enum>
     </property>
    </widget>
    <widget class="QPushButton" name="done_btn">
@@ -191,7 +134,8 @@ background-color: rgb(179, 229, 255);</string>
     <property name="styleSheet">
      <string notr="true">font: 24pt &quot;MS Shell Dlg 2&quot;;
 color: rgb(255, 255, 255);
-background-color: rgb(179, 229, 255);</string>
+
+background-color: rgb(92, 102, 186);</string>
     </property>
     <property name="text">
      <string>I'm ready!!</string>
@@ -200,16 +144,17 @@ background-color: rgb(179, 229, 255);</string>
    <widget class="QLabel" name="label_3">
     <property name="geometry">
      <rect>
-      <x>260</x>
-      <y>720</y>
+      <x>460</x>
+      <y>600</y>
       <width>301</width>
-      <height>71</height>
+      <height>81</height>
      </rect>
     </property>
     <property name="styleSheet">
      <string notr="true">font: 24pt &quot;MS Shell Dlg 2&quot;;
+background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(0, 0, 0, 0), stop:1 rgba(255, 255, 255, 0));
 color: rgb(255, 255, 255);
-background-color: rgb(179, 229, 255);</string>
+</string>
     </property>
     <property name="text">
      <string>Your points for now:</string>
@@ -218,16 +163,17 @@ background-color: rgb(179, 229, 255);</string>
    <widget class="QLabel" name="points_show">
     <property name="geometry">
      <rect>
-      <x>590</x>
-      <y>730</y>
-      <width>111</width>
-      <height>61</height>
+      <x>540</x>
+      <y>680</y>
+      <width>121</width>
+      <height>71</height>
      </rect>
     </property>
     <property name="styleSheet">
      <string notr="true">font: 24pt &quot;MS Shell Dlg 2&quot;;
+background-color: rgb(92, 102, 186);
 color: rgb(255, 255, 255);
-background-color: rgb(179, 229, 255);</string>
+  border-radius: 30px;</string>
     </property>
     <property name="text">
      <string/>
@@ -236,35 +182,22 @@ background-color: rgb(179, 229, 255);</string>
    <widget class="QPushButton" name="prevquestion">
     <property name="geometry">
      <rect>
-      <x>370</x>
+      <x>360</x>
       <y>440</y>
       <width>181</width>
       <height>61</height>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">font: 24pt &quot;MS Shell Dlg 2&quot;;
-color: rgb(255, 255, 255);
-background-color: rgb(179, 229, 255);</string>
+     <string notr="true">background-color: rgb(92, 102, 186);
+font: 24pt &quot;MS Shell Dlg 2&quot;;
+border-color: rgb(51, 58, 51);
+color: rgb(255, 255, 255);</string>
     </property>
     <property name="text">
      <string>&lt;- Previous</string>
     </property>
    </widget>
-   <zorder>line_5</zorder>
-   <zorder>line_2</zorder>
-   <zorder>label</zorder>
-   <zorder>nextquestion</zorder>
-   <zorder>line</zorder>
-   <zorder>line_3</zorder>
-   <zorder>questions_label</zorder>
-   <zorder>points</zorder>
-   <zorder>label_2</zorder>
-   <zorder>line_4</zorder>
-   <zorder>done_btn</zorder>
-   <zorder>label_3</zorder>
-   <zorder>points_show</zorder>
-   <zorder>prevquestion</zorder>
   </widget>
  </widget>
  <resources/>

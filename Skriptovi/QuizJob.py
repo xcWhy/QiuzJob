@@ -11,10 +11,9 @@ import sqlite3
 
 #da se namerqt vyprosi (pone 10), za se puskat na random
 
-#da se smeni nachina za poluchavane na tochki
 
 #dizainite da se opravqt
-#da se opravqt globalnite promenlivi
+
 #da se sloji da se smenq teksta ri profesiite - da ti dava koq si izbral
 
 questionCount = 0
@@ -233,11 +232,6 @@ class QuestionsScreen(QDialog):  # oshte edna funkciq kaoqto da refreshva i da n
 
         maxPoints += int(self.points.value())
         print(maxPoints)
-
-        #if questionCount == 0:
-            #self.prevquestion.hide()
-
-        #self.prevquestion.show()
         questionCount += 1
 
         if questionCount == 4:
