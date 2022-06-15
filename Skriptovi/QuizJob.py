@@ -244,8 +244,8 @@ class OurScreen(QDialog):
         #print(1)
         message = self.box.toPlainText()
         print(message)
-        token = 'ODIyODI0MzkyNTc1OTQyNjU2.GCTNiP.iSr0E5lDYrFvTE58HJLudjCzuvKVmtmNv0ezsk'
-        channel_id = 986271121903059034
+        token = "ODIyODI0MzkyNTc1OTQyNjU2.Gv-2aQ.sKFJWsCT1sCSbLsiogiwlaQzvDTu8C1vLGy0MU"
+        channel_id = 986276615849926668
 
         url = 'https://discord.com/api/v9/channels/{}/messages'.format(channel_id)
         data = {'content': message}
@@ -264,6 +264,8 @@ class QuestionsScreen(QDialog):  # oshte edna funkciq kaoqto da refreshva i da n
         super(QuestionsScreen, self).__init__()
         loadUi("Questions.ui", self)
 
+        self.hehe_btn.show()
+
         print(job_text)
 
         questionsTest = []
@@ -273,9 +275,7 @@ class QuestionsScreen(QDialog):  # oshte edna funkciq kaoqto da refreshva i da n
             if Questions[job_index][index] not in questionsTest:
                 questionsTest.append(Questions[job_index][index])
 
-        #self.proff_label.setText(f'How suitable are you for a {job_text}?')
-        self.proff_label.setText(f'How suitable are you for this job?')
-        #questionNum = random.randint(0, 9)
+        self.hehe_btn.clicked.connect(self.hehe_func)
 
         self.user = user
         self.refresh()
@@ -285,11 +285,27 @@ class QuestionsScreen(QDialog):  # oshte edna funkciq kaoqto da refreshva i da n
         self.points.setMaximum(100)
         self.isVis = self.done_btn.isVisible
 
-        self.questions_label.setText(f'{questionCount + 1}. {questionsTest[questionCount]}')
+        #self.questions_label.setText(f'{questionCount + 1}. {questionsTest[questionCount]}')
 
         self.nextquestion.clicked.connect(self.question_changer_forward)
         self.prevquestion.clicked.connect(self.question_changer_backward)
         self.done_btn.clicked.connect(self.ready)
+
+    def hehe_func(self):
+        global job_text, questionCount, maxPoints, job_index
+
+        maxPoints = 0
+        questionCount = 0
+
+        self.proff_label.setText(f'How suitable are you for a {job_text}?')
+        self.questions_label.setText(f'{questionCount + 1}. {questionsTest[questionCount]}')
+        self.points_show.setText(str(maxPoints))
+        self.points.setValue(0)
+        self.prevquestion.hide()
+        self.nextquestion.show()
+
+        self.hehe_btn.hide()
+
 
     def question_changer_forward(self):
         global questionCount, maxPoints, job_index, questionNum, questionsTest
@@ -341,6 +357,7 @@ class QuestionsScreen(QDialog):  # oshte edna funkciq kaoqto da refreshva i da n
         self.btn = btn
         self.btn.hide()
 
+
     def refresh(self):
         global questionCount, job_index, questionsTest
         questionCount = 0
@@ -349,13 +366,15 @@ class QuestionsScreen(QDialog):  # oshte edna funkciq kaoqto da refreshva i da n
 
     def ready(self):
         global maxPoints
+        self.hehe_btn.show()
         maxPoints += int(self.points.value())
         profile = ProfileScreen(self.user)
         widget.addWidget(profile)
         widget.setCurrentIndex(widget.currentIndex() - 1)
 
 
-Questions = [['Do you have problem-solving skills? / Are you creative / can think outside the box?', 'Do you have mechanical skills / you can repair things easy?', 'Do you have interpersonal/communication skills?', 'Do you maintain great physical stamina?', 'Are you in good health?', 'Are you good at organizing and managing tasks?','Can you remain flexible and adapt easily when faced to unexpected changes in weather?','Are you up-to-date with technology?','Can you work in teams? / Are you good at teamworks?','Could you describe yourself as trustworthy?'],
+
+Questions = [['Do you have problem-solving skills? / Are you creative\n / can think outside the box?', 'Do you have mechanical skills / you can repair things easy?', 'Do you have interpersonal/communication skills?', 'Do you maintain great physical stamina?', 'Are you in good health?', 'Are you good at organizing and managing tasks?','Can you remain flexible and adapt easily when faced to unexpected changes in weather?','Are you up-to-date with technology?','Can you work in teams? /\n Are you good at teamworks?','Could you describe yourself as trustworthy?'],
              ['Do you have decent communication and listening skills?', 'Could you describe yourself as being great at multitasking?', 'Do you happen to have good memory?', 'Are you good at following instructions?', 'Do you know more than one language?', 'Do you have high stamina?','Would you be able to maintain proffesionalism in bad scenarios?','Do you have critical thinking?',' Would you describe yourself as patient?','Do you happen to have social perceptiveness skills?'],
              ['Do you like cooking?', 'Do you use spices well?', 'Can you estimate what kind of flavours supplement each other?', 'Do you think the food is not only for the body but also for the soul?', 'Do you like eating?', 'Do you like tasting new kind of food?','Are people impressed by your dishes?','Can you prepare something delicious?','Do you know which the five basic sauces are?','Do you know some unknown products?'],
              ['Are you responsible?', 'Do you put the human life on first position?', 'Do you love studying?', 'Are you interested in Biology and Chemistry?', 'Are you resistant to mental pressure?', 'You are not afraid of blood?', 'You are not afraid of needles?', 'Do you have the necessary education?', 'Are you precise?', 'Do you like helping other people?'],
