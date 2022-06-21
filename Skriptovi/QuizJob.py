@@ -75,6 +75,7 @@ class SigninScreen(QDialog):
         widget.addWidget(login)
         widget.setCurrentIndex(widget.currentIndex() + 1)
 
+
 class LoginScreen(QDialog):
     def __init__(self):
         super(LoginScreen, self).__init__()
@@ -131,7 +132,7 @@ class ProfileScreen(QDialog):
         self.labels_text()
 
         self.us_btn.clicked.connect(self.openaboutus)
-        self.ourWindow = OurScreen()
+        self.ourWindow = OurScreen(self.user)
 
     def openaboutus(self):
         self.ourWindow.show()
@@ -233,16 +234,17 @@ class ProfileScreen(QDialog):
 
 class OurScreen(QDialog):
 
-    def __init__(self):
+    def __init__(self, user):
         super(OurScreen, self).__init__()
         loadUi("info_screen.ui", self)
         self.warn_label.hide()
+        self.user = user
 
         self.send_btn.clicked.connect(self.MessageSender)
 
     def MessageSender(self):
         #print(1)
-        message = self.box.toPlainText()
+        message = f'~~From username: "{self.user}"~~\n' + self.box.toPlainText()
         print(message)
         token = "ODIyODI0MzkyNTc1OTQyNjU2.Gv-2aQ.sKFJWsCT1sCSbLsiogiwlaQzvDTu8C1vLGy0MU"
         channel_id = 986276615849926668
@@ -257,6 +259,7 @@ class OurScreen(QDialog):
         #self.send_btn.hide()
 
         # print(len(token))
+
 
 class QuestionsScreen(QDialog):  # oshte edna funkciq kaoqto da refreshva i da ne precakva vyprosite
     def __init__(self, user):
