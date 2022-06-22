@@ -21,37 +21,37 @@ job_text = str()
 questionsTest = []
 
 class WelcomeScreen(QDialog):
-    def __init__(self):
+    def __init__(self): #we call the main functions from here
         super(WelcomeScreen, self).__init__()
         loadUi("First.ui", self)
         self.Login_btn.clicked.connect(self.gotologin)
         self.Signin_btn.clicked.connect(self.gotosignin)
 
-    def gotologin(self):
+    def gotologin(self): #the function which allows to switch to the "log in screen"
         login = LoginScreen()
         widget.addWidget(login)
         widget.setCurrentIndex(widget.currentIndex() + 1)
 
-    def gotosignin(self):
+    def gotosignin(self): #the function which allows to switch to the "sign up screen"
         signin = SigninScreen()
         widget.addWidget(signin)
         widget.setCurrentIndex(widget.currentIndex() + 1)
 
 
-class SigninScreen(QDialog):
-    def __init__(self):
+class SigninScreen(QDialog): #sign up object
+    def __init__(self): #main function which calls everything else in the class
         super(SigninScreen, self).__init__()
         loadUi("CreateAccScreen.ui", self)
         self.passwordfield.setEchoMode(QtWidgets.QLineEdit.Password)
-        self.gologin_btn.hide()
+        self.gologin_btn.hide() #we hide some buttons and labels here
         self.warning_label.hide()
         self.confirm_label.hide()
         self.create_btn.clicked.connect(self.createAcc)
 
 
-    def createAcc(self):
+    def createAcc(self): #we create the account of the person here
         username = self.usernamefield.text()
-        password = self.passwordfield.text()
+        password = self.passwordfield.text()# we get the strings of both text boxes
 
         if len(username) == 0 or len(password) == 0:
             self.warning_label.show()
@@ -63,30 +63,30 @@ class SigninScreen(QDialog):
 
             cur.execute("INSERT INTO login_info (username, password) VALUES (?, ?);",
                         (username, password))
-            connection.commit()
+            connection.commit() # we insert user's username and password into the database
 
             cur.close()
 
             self.gologin_btn.show()
             self.gologin_btn.clicked.connect(self.gotologin)
 
-    def gotologin(self):
+    def gotologin(self): #we go to login
         login = LoginScreen()
         widget.addWidget(login)
         widget.setCurrentIndex(widget.currentIndex() + 1)
 
 
-class LoginScreen(QDialog):
-    def __init__(self):
+class LoginScreen(QDialog): #log in class
+    def __init__(self): # main
         super(LoginScreen, self).__init__()
         loadUi("LoginScreen.ui", self)
         #self.wrong_label.hide()
         self.passwordfield.setEchoMode(QtWidgets.QLineEdit.Password)
         self.login_btn.clicked.connect(self.loginfunc)
 
-    def loginfunc(self):
+    def loginfunc(self): #here we check if the information is in the database
         username = self.usernamefield.text()
-        password = self.passwordfield.text()
+        password = self.passwordfield.text()# we get the strings from the text boxes
 
         if len(username) == 0 or len(password) == 0:
             self.wrong_label.show()
@@ -96,16 +96,16 @@ class LoginScreen(QDialog):
             connection = sqlite3.connect("test2.db")
             cur = connection.cursor()
             #query = 'SELECT password FROM login_info WHERE username =\''+username+"\'"
-            cur.execute("SELECT password FROM login_info WHERE username = ?", (username,)) #da se opravi pri greshen username
+            cur.execute("SELECT password FROM login_info WHERE username = ?", (username,)) #we search for a password with this given username
             result_pass = cur.fetchone()[0]
-            if result_pass == password:
+            if result_pass == password: #if correct we go to the profile screen
                 print('weeeeeeeeeeeee')
                 self.gotoprofile(username)
             else:
                 print('liosho >:(')
-                self.wrong_label.show()
+                self.wrong_label.show() #if not correct we show a warning label
 
-    def gotoprofile(self, username):
+    def gotoprofile(self, username): #we create a profile object
         profile = ProfileScreen(username)
         widget.addWidget(profile)
         widget.setCurrentIndex(widget.currentIndex() + 1)
@@ -114,7 +114,7 @@ class LoginScreen(QDialog):
 class ProfileScreen(QDialog):
     global maxPoints
 
-    def __init__(self, username):
+    def __init__(self, username): #
         super(ProfileScreen, self).__init__()
         loadUi("Profile.ui", self)
         global job_index
@@ -123,21 +123,21 @@ class ProfileScreen(QDialog):
         self.warning_label.hide()
         self.ButtonReady.clicked.connect(self.gotoquestions)
 
-        self.prevLabels = [self.prevlabel1, self.prevlabel2, self.prevlabel3]
+        self.prevLabels = [self.prevlabel1, self.prevlabel2, self.prevlabel3] #those lists are for showing the results of the user
         self.bestLabels = [self.bestlabel1, self.bestlabel2, self.bestlabel3]
 
         self.refresh_btn.clicked.connect(self.refresh_page)
-        if job_index == -1:
+        if job_index == -1: #if the person hasn't chosen a profession we give him a warning to do so
             self.theme_chooser()
         self.labels_text()
 
         self.us_btn.clicked.connect(self.openaboutus)
         self.ourWindow = OurScreen(self.user)
 
-    def openaboutus(self):
+    def openaboutus(self): # it's the little window which opens when we click "about us"
         self.ourWindow.show()
 
-    def labels_text(self):
+    def labels_text(self): #here we show all the user's results
 
         connection = sqlite3.connect("results.db")
         cur = connection.cursor()
@@ -148,34 +148,34 @@ class ProfileScreen(QDialog):
         rows1 = cur.fetchall()
         rows1.sort()
 
-        max = []
-        rezultati = []
+        max_results = []
+        latest = []
 
-        for i in range(len(rows)-1, -1, -1):
-            rezultati.append(rows[i])
-            if len(rezultati) == 3:
+        for i in range(len(rows)-1, -1, -1): #we choose the latest 3 results from the database
+            latest.append(rows[i])
+            if len(latest) == 3:
                 break
 
-        print("results:" + str(rezultati))
+        #print("results:" + str(latest))
 
         for j in range(0, len(rows)):
-            max.append(rows[j])
-        print("unsorted:" + str(max))
+            max_results.append(rows[j])
+        #print("unsorted:" + str(max))
 
-        for j in range(0, len(max)):
-            for k in range(j + 1, len(max)):
-                if max[j][1] < max[k][1]:
-                    a = max[j]
-                    max[j] = max[k]
-                    max[k] = a
-        print("rows:" + str(max))
+        for j in range(0, len(max_results)): # here we choose the best 3 results from the database
+            for k in range(j + 1, len(max_results)):
+                if max_results[j][1] < max_results[k][1]:
+                    a = max_results[j]
+                    max_results[j] = max_results[k]
+                    max_results[k] = a
+        #print("rows:" + str(max))
 
 
-        for i in range(len(rezultati)):
-            self.prevLabels[i].setText(str(f'{rezultati[i][0]} : {rezultati[i][1]}%'))
-            self.bestLabels[i].setText(str(f'{max[i][0]} : {max[i][1]}%'))
+        for i in range(len(latest)):
+            self.prevLabels[i].setText(str(f'{latest[i][0]} : {latest[i][1]}%'))
+            self.bestLabels[i].setText(str(f'{max_results[i][0]} : {max_results[i][1]}%')) #here we show the user his results in the 3 * 2 labels
 
-    def theme_chooser(self):
+    def theme_chooser(self): # here we get the information - which profession has the user chosen
         global job_index, job_text
         if self.theme_box.currentText() == 'Farmer':
             job_index = 0
@@ -199,27 +199,27 @@ class ProfileScreen(QDialog):
             print(job_index)
 
 
-    def refresh_page(self):
+    def refresh_page(self): # we refresh the page the button is clicked
         global prevJob, bestJob, job_text, maxPoints
 
-        percents = (maxPoints * 100) / 500
+        percents = (maxPoints * 100) / 500 #we make the results into percents
 
         connection = sqlite3.connect("results.db")
         cur = connection.cursor()
         print("Successfully Connected to SQLite")
 
         if job_text != '' and maxPoints != 0:
-            cur.execute("INSERT INTO res_questions (theme, score, user) VALUES (?, ?, ?);",
+            cur.execute("INSERT INTO res_questions (theme, score, user) VALUES (?, ?, ?);", #we insert the user's results into the database
                         (job_text, percents, self.user))
             connection.commit()
 
         # self.theme_chooser()
-        self.labels_text()
+        self.labels_text() # we show the new results
 
-        job_text = ''
+        job_text = '' #we reset these
         maxPoints = 0
 
-    def gotoquestions(self):
+    def gotoquestions(self): # we create another object "question screen"
         global maxPoints
         if self.theme_box.currentText() == '---':
             self.warning_label.show()
@@ -232,7 +232,7 @@ class ProfileScreen(QDialog):
             self.warning_label.hide()
 
 
-class OurScreen(QDialog):
+class OurScreen(QDialog): #the little screen
 
     def __init__(self, user):
         super(OurScreen, self).__init__()
@@ -246,10 +246,10 @@ class OurScreen(QDialog):
         #print(1)
         message = f'~~From username: "{self.user}"~~\n' + self.box.toPlainText()
         print(message)
-        token = "ODIyODI0MzkyNTc1OTQyNjU2.Gv-2aQ.sKFJWsCT1sCSbLsiogiwlaQzvDTu8C1vLGy0MU"
-        channel_id = 986276615849926668
+        token = "ODIyODI0MzkyNTc1OTQyNjU2.Gv-2aQ.sKFJWsCT1sCSbLsiogiwlaQzvDTu8C1vLGy0MU" #a special token which should be changed almost every hour
+        channel_id = 986276615849926668 #the id of the server / channel which we want to send the message to
 
-        url = 'https://discord.com/api/v9/channels/{}/messages'.format(channel_id)
+        url = 'https://discord.com/api/v9/channels/{}/messages'.format(channel_id) # the api link which we give - it sends the msgs to the given link
         data = {'content': message}
         header = {'authorization': token}
 
@@ -261,19 +261,19 @@ class OurScreen(QDialog):
         # print(len(token))
 
 
-class QuestionsScreen(QDialog):  # oshte edna funkciq kaoqto da refreshva i da ne precakva vyprosite
+class QuestionsScreen(QDialog):  # question screen class
     def __init__(self, user):
         global questionCount, maxPoints, job_index, questionCount, job_text, questionNum, questionsTest
         super(QuestionsScreen, self).__init__()
         loadUi("Questions.ui", self)
 
-        self.hehe_btn.show()
+        self.hehe_btn.show() #the big button which shows when we go to the question screen
 
         print(job_text)
 
         questionsTest = []
 
-        while len(questionsTest) != 5:
+        while len(questionsTest) != 5: # here we choose 5 random questions for the profession
             index = random.randint(0, 9)
             if Questions[job_index][index] not in questionsTest:
                 questionsTest.append(Questions[job_index][index])
@@ -285,7 +285,7 @@ class QuestionsScreen(QDialog):  # oshte edna funkciq kaoqto da refreshva i da n
         # self.done_btn.hide()
         self.prevquestion.hide()
         self.warn_label.hide()
-        self.points.setMaximum(100)
+        self.points.setMaximum(100) # we lock the max to be 100
         self.isVis = self.done_btn.isVisible
 
         #self.questions_label.setText(f'{questionCount + 1}. {questionsTest[questionCount]}')
@@ -294,7 +294,7 @@ class QuestionsScreen(QDialog):  # oshte edna funkciq kaoqto da refreshva i da n
         self.prevquestion.clicked.connect(self.question_changer_backward)
         self.done_btn.clicked.connect(self.ready)
 
-    def hehe_func(self):
+    def hehe_func(self): # the main reason for the 'hehe_btn' is to refresh the whole screen
         global job_text, questionCount, maxPoints, job_index
 
         maxPoints = 0
@@ -310,7 +310,7 @@ class QuestionsScreen(QDialog):  # oshte edna funkciq kaoqto da refreshva i da n
         self.hehe_btn.hide()
 
 
-    def question_changer_forward(self):
+    def question_changer_forward(self): #it shows us the next question
         global questionCount, maxPoints, job_index, questionNum, questionsTest
 
         #questionNum = random.randint(0, 9)
@@ -334,7 +334,7 @@ class QuestionsScreen(QDialog):  # oshte edna funkciq kaoqto da refreshva i da n
             self.points_show.setText(str(maxPoints))
             self.warn_label.hide()
 
-    def question_changer_backward(self):
+    def question_changer_backward(self): #it shows us the previous question
         global questionCount, maxPoints, job_index, questionNum, questionsTest
 
         #questionNum = random.randint(0, 9)
@@ -361,13 +361,13 @@ class QuestionsScreen(QDialog):  # oshte edna funkciq kaoqto da refreshva i da n
         self.btn.hide()
 
 
-    def refresh(self):
+    def refresh(self): # we dont know if that does anything
         global questionCount, job_index, questionsTest
         questionCount = 0
         job_index = job_index
         self.questions_label.setText(f'{questionCount + 1}. {questionsTest[questionCount]}')
 
-    def ready(self):
+    def ready(self): #the ready button which send us back to the profile screen
         global maxPoints
         self.hehe_btn.show()
         maxPoints += int(self.points.value())
