@@ -9,4 +9,4 @@ https://docs.google.com/document/d/1zP50Rn2rVv-z2Pz6-zcZ84cCF7ZQk_3uQ4pJenSJwrY/
 people should change it on line 240 ~ 260 in the class 'OurScreen', variable -> token  
 *the token is valid for 1 hour*  
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-"ODIyODI0MzkyNTc1OTQyNjU2.GdFdsR.Od1meueND6HCO5nrpd5rEhMA3OkEVKvxYI9PhY"
+"ODIyODI0MzkyNTc1OTQyNjU2.Gc2mTC.scjd-C6-DefpXmy7qhoFzg-IBE7OsgbSDHbVhs"
