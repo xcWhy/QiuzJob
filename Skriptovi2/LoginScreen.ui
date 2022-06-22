@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Dialog</class>
+ <widget class="QDialog" name="Dialog">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1200</width>
+    <height>800</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Dialog</string>
+  </property>
+  <widget class="QWidget" name="widget" native="true">
+   <property name="geometry">
+    <rect>
+     <x>-80</x>
+     <y>-60</y>
+     <width>1301</width>
+     <height>881</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: qlineargradient(spread:pad, x1:0.59, y1:0, x2:0.602273, y2:1, stop:0 rgba(85, 98, 194, 255), stop:0.943182 rgba(229, 195, 226, 255));</string>
+   </property>
+   <widget class="QPushButton" name="login_btn">
+    <property name="geometry">
+     <rect>
+      <x>520</x>
+      <y>610</y>
+      <width>261</width>
+      <height>61</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(92, 102, 186);
+font: 14pt &quot;MS Shell Dlg 2&quot;;
+border-color: rgb(51, 58, 51);
+color: rgb(255, 255, 255);</string>
+    </property>
+    <property name="text">
+     <string>Log in</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label">
+    <property name="geometry">
+     <rect>
+      <x>580</x>
+      <y>90</y>
+      <width>201</width>
+      <height>91</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">font: 40pt &quot;MS Shell Dlg 2&quot;;
+setStyleSheet:(&quot;background-color: rgba(0,0,0,0)&quot;);
+color: rgb(255, 255, 255);
+background-color: qlineargradient(spread:pad, x1:0.205, y1:0, x2:0.312, y2:1, stop:0 rgba(100, 241, 255, 0), stop:1 rgba(245, 221, 221, 0));
+</string>
+    </property>
+    <property name="text">
+     <string>Login</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_2">
+    <property name="geometry">
+     <rect>
+      <x>500</x>
+      <y>160</y>
+      <width>471</width>
+      <height>61</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">font: 15pt &quot;MS Shell Dlg 2&quot;;
+setStyleSheet:(&quot;background-color: rgba(0,0,0,0)&quot;);
+color: rgb(255, 255, 255);
+background-color: qlineargradient(spread:pad, x1:0.205, y1:0, x2:0.312, y2:1, stop:0 rgba(100, 241, 255, 0), stop:1 rgba(245, 221, 221, 0));
+</string>
+    </property>
+    <property name="text">
+     <string>Sign in to your existing account</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="usernamefield">
+    <property name="geometry">
+     <rect>
+      <x>480</x>
+      <y>340</y>
+      <width>331</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(255, 255, 255);
+font: 10pt &quot;MS Shell Dlg 2&quot;;</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="passwordfield">
+    <property name="geometry">
+     <rect>
+      <x>480</x>
+      <y>450</y>
+      <width>331</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(255, 255, 255);
+font: 10pt &quot;MS Shell Dlg 2&quot;;</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_3">
+    <property name="geometry">
+     <rect>
+      <x>480</x>
+      <y>290</y>
+      <width>301</width>
+      <height>61</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">font: 15pt &quot;MS Shell Dlg 2&quot;;
+setStyleSheet:(&quot;background-color: rgba(0,0,0,0)&quot;);
+color: rgb(255, 255, 255);
+background-color: qlineargradient(spread:pad, x1:0.205, y1:0, x2:0.312, y2:1, stop:0 rgba(100, 241, 255, 0), stop:1 rgba(245, 221, 221, 0));
+</string>
+    </property>
+    <property name="text">
+     <string>Username</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_4">
+    <property name="geometry">
+     <rect>
+      <x>480</x>
+      <y>400</y>
+      <width>301</width>
+      <height>61</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">font: 15pt &quot;MS Shell Dlg 2&quot;;
+setStyleSheet:(&quot;background-color: rgba(0,0,0,0)&quot;);
+color: rgb(255, 255, 255);
+background-color: qlineargradient(spread:pad, x1:0.205, y1:0, x2:0.312, y2:1, stop:0 rgba(100, 241, 255, 0), stop:1 rgba(245, 221, 221, 0));
+</string>
+    </property>
+    <property name="text">
+     <string>Password</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="wrong_label">
+    <property name="geometry">
+     <rect>
+      <x>540</x>
+      <y>500</y>
+      <width>221</width>
+      <height>61</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">font: 12pt &quot;MS Shell Dlg 2&quot;;
+setStyleSheet:(&quot;background-color: rgba(0,0,0,0)&quot;);
+color: rgb(255, 0, 0);
+background-color: qlineargradient(spread:pad, x1:0.205, y1:0, x2:0.312, y2:1, stop:0 rgba(100, 241, 255, 0), stop:1 rgba(245, 221, 221, 0));
+</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

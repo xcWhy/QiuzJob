@@ -1,0 +1,307 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Dialog</class>
+ <widget class="QDialog" name="Dialog">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1200</width>
+    <height>800</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Dialog</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">background-color:
+rgb(240, 240, 240);</string>
+  </property>
+  <widget class="QWidget" name="Background" native="true">
+   <property name="geometry">
+    <rect>
+     <x>-10</x>
+     <y>-30</y>
+     <width>1231</width>
+     <height>841</height>
+    </rect>
+   </property>
+   <property name="autoFillBackground">
+    <bool>false</bool>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QWidget#Background{
+
+	background-color: qlineargradient(spread:pad, x1:0.59, y1:0, x2:0.602273, y2:1, stop:0 rgba(85, 98, 194, 255), stop:0.943182 rgba(229, 195, 226, 255));
+
+}</string>
+   </property>
+   <widget class="QLabel" name="label">
+    <property name="geometry">
+     <rect>
+      <x>440</x>
+      <y>30</y>
+      <width>711</width>
+      <height>141</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QLabel{
+	font: 52pt &quot;Rockwell&quot;;
+background-color: rgb(92, 102, 186);
+
+border-color: rgb(51, 58, 51);
+color: rgb(255, 255, 255);
+
+}
+
+
+</string>
+    </property>
+    <property name="text">
+     <string>Welcome!</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="Login_btn">
+    <property name="geometry">
+     <rect>
+      <x>440</x>
+      <y>360</y>
+      <width>321</width>
+      <height>61</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">
+	font: 14pt &quot;Rockwell&quot;;
+background-color: rgb(92, 102, 186);
+
+border-color: rgb(51, 58, 51);
+color: rgb(255, 255, 255);
+
+</string>
+    </property>
+    <property name="text">
+     <string>Log in</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="Signin_btn">
+    <property name="geometry">
+     <rect>
+      <x>440</x>
+      <y>460</y>
+      <width>321</width>
+      <height>61</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">	font: 14pt &quot;Rockwell&quot;;
+background-color: rgb(92, 102, 186);
+
+border-color: rgb(51, 58, 51);
+color: rgb(255, 255, 255);
+</string>
+    </property>
+    <property name="text">
+     <string>Sign up</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_2">
+    <property name="geometry">
+     <rect>
+      <x>520</x>
+      <y>190</y>
+      <width>221</width>
+      <height>61</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">	font: 20pt &quot;Rockwell&quot;;
+setStyleSheet:(&quot;background-color: rgba(0,0,0,0)&quot;);
+color: rgb(255, 255, 255);
+background-color: qlineargradient(spread:pad, x1:0.205, y1:0, x2:0.312, y2:1, stop:0 rgba(100, 241, 255, 0), stop:1 rgba(245, 221, 221, 0));
+</string>
+    </property>
+    <property name="text">
+     <string>To QuizJob :&gt;</string>
+    </property>
+   </widget>
+   <widget class="Line" name="line">
+    <property name="geometry">
+     <rect>
+      <x>60</x>
+      <y>170</y>
+      <width>16</width>
+      <height>741</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: qlineargradient(spread:pad, x1:0.59, y1:0, x2:0.602273, y2:1, stop:0 rgba(85, 98, 194, 255), stop:0.943182 rgba(229, 195, 226, 255));</string>
+    </property>
+    <property name="orientation">
+     <enum>Qt::Vertical</enum>
+    </property>
+   </widget>
+   <widget class="Line" name="line_2">
+    <property name="geometry">
+     <rect>
+      <x>120</x>
+      <y>170</y>
+      <width>16</width>
+      <height>741</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: qlineargradient(spread:pad, x1:0.59, y1:0, x2:0.602273, y2:1, stop:0 rgba(85, 98, 194, 255), stop:0.943182 rgba(229, 195, 226, 255));</string>
+    </property>
+    <property name="orientation">
+     <enum>Qt::Vertical</enum>
+    </property>
+   </widget>
+   <widget class="Line" name="line_5">
+    <property name="geometry">
+     <rect>
+      <x>180</x>
+      <y>170</y>
+      <width>16</width>
+      <height>741</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: qlineargradient(spread:pad, x1:0.59, y1:0, x2:0.602273, y2:1, stop:0 rgba(85, 98, 194, 255), stop:0.943182 rgba(229, 195, 226, 255));</string>
+    </property>
+    <property name="orientation">
+     <enum>Qt::Vertical</enum>
+    </property>
+   </widget>
+   <widget class="Line" name="line_6">
+    <property name="geometry">
+     <rect>
+      <x>240</x>
+      <y>170</y>
+      <width>16</width>
+      <height>741</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: qlineargradient(spread:pad, x1:0.59, y1:0, x2:0.602273, y2:1, stop:0 rgba(85, 98, 194, 255), stop:0.943182 rgba(229, 195, 226, 255));</string>
+    </property>
+    <property name="orientation">
+     <enum>Qt::Vertical</enum>
+    </property>
+   </widget>
+   <widget class="Line" name="line_7">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>160</y>
+      <width>1221</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(228, 194, 225);</string>
+    </property>
+    <property name="orientation">
+     <enum>Qt::Horizontal</enum>
+    </property>
+   </widget>
+   <widget class="Line" name="line_8">
+    <property name="geometry">
+     <rect>
+      <x>1160</x>
+      <y>160</y>
+      <width>16</width>
+      <height>741</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: qlineargradient(spread:pad, x1:0.59, y1:0, x2:0.602273, y2:1, stop:0 rgba(85, 98, 194, 255), stop:0.943182 rgba(229, 195, 226, 255));</string>
+    </property>
+    <property name="orientation">
+     <enum>Qt::Vertical</enum>
+    </property>
+   </widget>
+   <widget class="Line" name="line_3">
+    <property name="geometry">
+     <rect>
+      <x>980</x>
+      <y>160</y>
+      <width>16</width>
+      <height>741</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: qlineargradient(spread:pad, x1:0.59, y1:0, x2:0.602273, y2:1, stop:0 rgba(85, 98, 194, 255), stop:0.943182 rgba(229, 195, 226, 255));</string>
+    </property>
+    <property name="orientation">
+     <enum>Qt::Vertical</enum>
+    </property>
+   </widget>
+   <widget class="Line" name="line_9">
+    <property name="geometry">
+     <rect>
+      <x>1100</x>
+      <y>160</y>
+      <width>16</width>
+      <height>741</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: qlineargradient(spread:pad, x1:0.59, y1:0, x2:0.602273, y2:1, stop:0 rgba(85, 98, 194, 255), stop:0.943182 rgba(229, 195, 226, 255));</string>
+    </property>
+    <property name="orientation">
+     <enum>Qt::Vertical</enum>
+    </property>
+   </widget>
+   <widget class="Line" name="line_4">
+    <property name="geometry">
+     <rect>
+      <x>1040</x>
+      <y>160</y>
+      <width>16</width>
+      <height>741</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: qlineargradient(spread:pad, x1:0.59, y1:0, x2:0.602273, y2:1, stop:0 rgba(85, 98, 194, 255), stop:0.943182 rgba(229, 195, 226, 255));</string>
+    </property>
+    <property name="orientation">
+     <enum>Qt::Vertical</enum>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_3">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>30</y>
+      <width>1221</width>
+      <height>131</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(92, 102, 186);</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <zorder>line_9</zorder>
+   <zorder>line_3</zorder>
+   <zorder>line_4</zorder>
+   <zorder>line_8</zorder>
+   <zorder>line_5</zorder>
+   <zorder>line_6</zorder>
+   <zorder>line_2</zorder>
+   <zorder>line</zorder>
+   <zorder>Login_btn</zorder>
+   <zorder>Signin_btn</zorder>
+   <zorder>label_2</zorder>
+   <zorder>label_3</zorder>
+   <zorder>label</zorder>
+   <zorder>line_7</zorder>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
